@@ -14,6 +14,7 @@ public class SortButtons extends JPanel {
 	public JButton[] sortBut;
 
 	public SortButtons() {
+		super();
 		// TODO Auto-generated constructor stub
 		setUp();
 	}
