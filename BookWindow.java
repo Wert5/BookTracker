@@ -1,4 +1,5 @@
 
+import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.GraphicsConfiguration;
 import java.awt.GridBagConstraints;
@@ -11,16 +12,21 @@ import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
 
 
 public class BookWindow extends JFrame {
-	public SortButtons s=new SortButtons();
-	public SortButtons s2=new SortButtons();
+	private SortButtons sort=new SortButtons();
+	private JList<String> bookList;
+	private JScrollPane scroll;
 	
 	public BookWindow(){
 		super();
 		this.setTitle("Books");
-		this.setSize(1000,1000);
+		this.setSize(1000,700);
+		this.setResizable(false);
 		this.setLocation(10, 10);
 		JLabel h = new JLabel("Hello");
 		h.setVisible(true);
@@ -40,8 +46,21 @@ public class BookWindow extends JFrame {
 		c.gridx=1;	
 		c.gridwidth=6;
 		c.gridy=1;
-		this.add(s,c);
+		this.add(sort,c);
 		c.gridy=2;
-		this.add(s2,c);
+		String[] test = new String[50];//For Testing only
+		test[0]=" aaaaabbbbbcccccdddddeeeeefffff  |  1111  |    111    |  1111  |  111.22  |  978-0-316-01369-7  |  11";
+		test[1]=test[0];
+		for(int i=2;i<test.length;i++){
+			test[i]="choice"+i;
+		}
+		bookList = new JList<String>(test);
+		bookList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		bookList.setLayoutOrientation(JList.VERTICAL);
+		bookList.setVisibleRowCount(-1);
+		scroll = new JScrollPane(bookList);
+		scroll.setPreferredSize(new Dimension((int)sort.getPreferredSize().getWidth(),500));
+		this.add(scroll,c);
+
 	}
 }
