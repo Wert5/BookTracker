@@ -1,17 +1,13 @@
 
 import java.awt.Dimension;
-import java.awt.Frame;
-import java.awt.GraphicsConfiguration;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -19,9 +15,13 @@ import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
 
-public class BookWindow extends JFrame implements ActionListener {
-	private SortButtons sort=new SortButtons();
-	private JList bookList;
+public class BookWindow extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private SortButtons sort=new SortButtons(this);
+	private JList<Book> bookList;
 	private JScrollPane scroll;
 	
 	public BookWindow(){
@@ -40,7 +40,6 @@ public class BookWindow extends JFrame implements ActionListener {
 			   System.exit(0);
 		  	} //windowClosing
 		} );
-
 	}
 	
 	public void addComponents(){
@@ -50,25 +49,27 @@ public class BookWindow extends JFrame implements ActionListener {
 		c.gridy=1;
 		this.add(sort,c);
 		c.gridy=2;
-		String[] test = new String[50];//For Testing only
-		test[0]=" aaaaabbbbbcccccdddddeeeeefffff  |  1111  |    111    |  1111  |  111.22  |  978-0-316-01369-7  |  11";
-		test[1]=test[0];
-		for(int i=2;i<test.length;i++){
-			test[i]="choice"+i;
-		}//*/
-		bookList = new JList(test);
+		Book[] test = new Book[50];//For Testing only
+		for(int i=0;i<test.length;i++){
+			test[i]=new Book("abbbbMMMmmm",new BookOrder(100,100,""),100,123.6,"a643524523542354235423646sadgsadgdgfad",1);
+		}
+		setList(test);
+	}
+	
+	public void setList(Book[] b){
+		GridBagConstraints c=new GridBagConstraints();
+		c.gridy=2;
+		c.gridwidth=6;
+		c.gridx=1;
+		bookList = new JList<Book>(b);
+		bookList.setFont(new Font(Font.MONOSPACED,Font.PLAIN,12));
 		bookList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		bookList.setLayoutOrientation(JList.VERTICAL);
 		bookList.setVisibleRowCount(-1);
 		scroll = new JScrollPane(bookList);
 		scroll.setPreferredSize(new Dimension((int)sort.getPreferredSize().getWidth(),500));
 		this.add(scroll,c);
-
+		this.revalidate();
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		
-		
-	}
 }
