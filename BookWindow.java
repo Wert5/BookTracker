@@ -6,6 +6,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -17,7 +19,7 @@ import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
 
-public class BookWindow extends JFrame {
+public class BookWindow extends JFrame implements ActionListener {
 	private SortButtons sort=new SortButtons();
 	private JList bookList;
 	private JScrollPane scroll;
@@ -53,7 +55,7 @@ public class BookWindow extends JFrame {
 		test[1]=test[0];
 		for(int i=2;i<test.length;i++){
 			test[i]="choice"+i;
-		}
+		}//*/
 		bookList = new JList(test);
 		bookList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		bookList.setLayoutOrientation(JList.VERTICAL);
@@ -62,5 +64,11 @@ public class BookWindow extends JFrame {
 		scroll.setPreferredSize(new Dimension((int)sort.getPreferredSize().getWidth(),500));
 		this.add(scroll,c);
 
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		
+		
 	}
 }
