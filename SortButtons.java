@@ -40,6 +40,8 @@ public class SortButtons extends JPanel {
 		}
 		sortBut[0].setMargin(new Insets(0,85,0,85));
 		sortBut[2].setMargin(new Insets(0,5,0,5));
+		sortBut[4].setMargin(new Insets(0,10,0,10));
+		sortBut[5].setMargin(new Insets(0,50,0,50));
 	}
 
 }
