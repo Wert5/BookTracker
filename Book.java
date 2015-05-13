@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 /*
- * 
+ * This class represents a book. it stores data and formats a string about the book.
  */
 
 public class Book {
+	public static final String sep=" | ";
 	private String title;
 	private BookOrder store;
 	private int total;
@@ -43,19 +44,27 @@ public class Book {
 		return grade;
 	}
 	
-	private String toLength(String a, int l){
+	private String toLength(String a, int l,char pad){
 		if(a.length()>=l){
 			return a.substring(0,l);
 		}
 		while(a.length()<l){
-			a+=" ";
+			a+=""+pad;
 		}
 		return a;
 	}
-	
+	/**
+	 * Returns a String formatted for the list GUI.
+	 */
 	public String toString(){
-		String r=toLength(title,30);
-		return r+"x";
+		String r=" "+toLength(title,25,' ')+sep;
+		r+=""+toLength(""+total,3,' ')+""+ sep;
+		r+=""+toLength(""+store.room,3,' ')+""+ sep;
+		r+=""+toLength(""+total,4,' ')+""+ sep;
+		r+=""+toLength(""+(int)price+"."+toLength(""+(int)(price*100%100),2,'0'),6,' ')+""+sep;
+		r+=toLength(isbn,20,' ')+sep;
+		r+=toLength(""+grade,2,' ');
+		return r;
 	}
 	
 }
