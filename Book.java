@@ -1,15 +1,19 @@
 import java.util.ArrayList;
-
+/*
+ * 
+ */
 
 public class Book {
-	private BookOrder store=new BookOrder();
+	private String title;
+	private BookOrder store;
 	private int total;
 	private ArrayList<BookOrder> orders=new ArrayList<BookOrder>();
 	private double price=0;
 	private String isbn="";
 	private int grade=0;
 	
-	public Book(BookOrder bo,int tot,double p,String i,int grd){
+	public Book(String t,BookOrder bo,int tot,double p,String i,int grd){
+		this.title=t;
 		this.store = bo;
 		this.total = tot;
 		this.price = p;
@@ -39,6 +43,19 @@ public class Book {
 		return grade;
 	}
 	
+	private String toLength(String a, int l){
+		if(a.length()>=l){
+			return a.substring(0,l);
+		}
+		while(a.length()<l){
+			a+=" ";
+		}
+		return a;
+	}
 	
+	public String toString(){
+		String r=toLength(title,30);
+		return r+"x";
+	}
 	
 }
