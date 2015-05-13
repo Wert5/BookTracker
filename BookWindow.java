@@ -19,7 +19,7 @@ import javax.swing.ListSelectionModel;
 
 public class BookWindow extends JFrame {
 	private SortButtons sort=new SortButtons();
-	private JList<String> bookList;
+	private JList bookList;
 	private JScrollPane scroll;
 	
 	public BookWindow(){
@@ -54,7 +54,7 @@ public class BookWindow extends JFrame {
 		for(int i=2;i<test.length;i++){
 			test[i]="choice"+i;
 		}
-		bookList = new JList<String>(test);
+		bookList = new JList(test);
 		bookList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		bookList.setLayoutOrientation(JList.VERTICAL);
 		bookList.setVisibleRowCount(-1);
