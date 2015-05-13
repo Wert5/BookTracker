@@ -1,8 +1,11 @@
 import java.awt.Insets;
 import java.awt.LayoutManager;
 import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 /**
  * 
@@ -10,19 +13,15 @@ import javax.swing.JPanel;
  *This class is the panel with the sorting buttons on it.
  */
 
-public class SortButtons extends JPanel {
+public class SortButtons extends JPanel implements ActionListener{
 	public JButton[] sortBut;
+	private BookWindow window;
 
-	public SortButtons() {
+	public SortButtons(BookWindow bw) {
 		super();
 		// TODO Auto-generated constructor stub
 		setUp();
-	}
-
-	public SortButtons(LayoutManager arg0) {
-		super(arg0);
-		setUp();
-		// TODO Auto-generated constructor stub
+		window=bw;
 	}
 	
 	public void setUp(){
@@ -38,10 +37,29 @@ public class SortButtons extends JPanel {
 			a.setMargin(new Insets(0,0,0,0));
 			this.add(a);
 		}
-		sortBut[0].setMargin(new Insets(0,85,0,85));
-		sortBut[2].setMargin(new Insets(0,5,0,5));
+		sortBut[0].setMargin(new Insets(0,80,0,80));
+		sortBut[3].setMargin(new Insets(0,5,0,5));
 		sortBut[4].setMargin(new Insets(0,10,0,10));
-		sortBut[5].setMargin(new Insets(0,50,0,50));
+		sortBut[5].setMargin(new Insets(0,60,0,60));
+		for(JButton j:sortBut)
+			j.addActionListener(this);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent ae) {
+		// TODO Auto-generated method stub
+		for(JButton j:sortBut){
+			if(ae.getSource()==j){
+				JOptionPane.showMessageDialog(this, "Sorting by "+ae.getActionCommand().toLowerCase());
+				Book[] test = new Book[50];//For Testing only
+				for(int i=0;i<test.length;i++){
+					test[i]=new Book(ae.getActionCommand(),new BookOrder(100,100,""),100,123.6,"a643524523542354235423646sadgsadgdgfad",1);
+				}
+				window.setList(test);
+				window.repaint();
+				
+			}
+		}
 	}
 
 }
