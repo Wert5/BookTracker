@@ -8,12 +8,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
-
 
 public class BookWindow extends JFrame {
 	/**
@@ -21,15 +21,16 @@ public class BookWindow extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private SortButtons sort=new SortButtons(this);
-	private JList<Book> bookList;
+	private JList bookList;
+	private DefaultListModel bookMod;
 	private JScrollPane scroll;
 	
 	public BookWindow(){
 		super();
 		this.setTitle("Books");
-		this.setSize(1200,800);
+		this.setSize(1000,700);
 		this.setResizable(false);
-		this.setLocation(40, 50);
+		this.setLocation(10, 10);
 		JLabel h = new JLabel("Hello");
 		h.setVisible(true);
 		//b.addLayoutComponent(h, BorderLayout.NORTH);
@@ -51,17 +52,21 @@ public class BookWindow extends JFrame {
 		c.gridy=2;
 		Book[] test = new Book[50];//For Testing only
 		for(int i=0;i<test.length;i++){
-			test[i]=new Book("abbbbMMMmmm",new BookOrder(100,100,""),100,123.6,"a643524523542354235423646sadgsadgdgfad",1);
+			test[i]=new Book("abbbbMMMmmm",new BookOrder(100,100,""),100,123.6,"a643524523542354235423646sadgsadgdgfad",Book.g.AP);
 		}
-		setList(test);
+		initList(test);
 	}
 	
-	public void setList(Book[] b){
+	public void initList(Book[] b){
 		GridBagConstraints c=new GridBagConstraints();
 		c.gridy=2;
 		c.gridwidth=6;
 		c.gridx=1;
-		bookList = new JList<Book>(b);
+		bookMod = new DefaultListModel();
+		for(Book bk:b){
+			bookMod.addElement(bk);
+		}
+		bookList = new JList(bookMod);
 		bookList.setFont(new Font(Font.MONOSPACED,Font.PLAIN,12));
 		bookList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		bookList.setLayoutOrientation(JList.VERTICAL);
@@ -69,7 +74,27 @@ public class BookWindow extends JFrame {
 		scroll = new JScrollPane(bookList);
 		scroll.setPreferredSize(new Dimension((int)sort.getPreferredSize().getWidth(),500));
 		this.add(scroll,c);
-		this.revalidate();
+		this.repaint();
+	}
+	
+	public void setList(Book[] b){
+		if(b.length<=bookMod.getSize()){
+			int i=0;
+			for(i=0;i<b.length;i++){
+				bookMod.set(i, b[i]);
+			}
+			while(bookMod.getSize()>b.length){
+				bookMod.remove(bookMod.getSize()-1);
+			}
+		}else{
+			int i=0;
+			for(i=0;i<bookMod.getSize();i++){
+				bookMod.set(i, b[i]);
+			}
+			for(;i<b.length;i++){
+				bookMod.add(i, b[i]);
+			}
+		}
 	}
 
 }
