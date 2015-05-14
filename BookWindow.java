@@ -1,6 +1,19 @@
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
 
 public class BookWindow extends JFrame {
 	/**
@@ -11,13 +24,14 @@ public class BookWindow extends JFrame {
 	private JList bookList;
 	private DefaultListModel bookMod;
 	private JScrollPane scroll;
+	private BookData bd;
 	
 	public BookWindow(){
 		super();
-		this.setTitle("BookTester BETA (Secure Information, DO NOT RELEASE)");
-		this.setSize(1200,800);
+		this.setTitle("Books");
+		this.setSize(1000,700);
 		this.setResizable(false);
-		this.setLocation(40, 50);
+		this.setLocation(10, 10);
 		JLabel h = new JLabel("Hello");
 		h.setVisible(true);
 		//b.addLayoutComponent(h, BorderLayout.NORTH);
@@ -37,11 +51,12 @@ public class BookWindow extends JFrame {
 		c.gridy=1;
 		this.add(sort,c);
 		c.gridy=2;
-		Book[] test = new Book[50];//For Testing only
-		for(int i=0;i<test.length;i++){
-			test[i]=new Book("abbbbMMMmmm",new BookOrder(100,100,""),100,123.6,"a643524523542354235423646sadgsadgdgfad",Book.g.AP);
-		}
-		initList(test);
+		bd=new BookData();
+		//Book[] test = new Book[50];//For Testing only
+		//for(int i=0;i<test.length;i++){
+			//test[i]=new Book("abbbbMMMmmm",new BookOrder(100,100,""),100,123.6,"a643524523542354235423646sadgsadgdgfad",Book.g.AP);
+		//}
+		initList(bd.getOrig().toArray(new Book[12321312]));
 	}
 	
 	public void initList(Book[] b){
