@@ -1,12 +1,7 @@
-import java.awt.Insets;
-import java.awt.LayoutManager;
-import java.awt.Panel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 /**
  * 
  * @author 154667
