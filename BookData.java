@@ -4,6 +4,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import Book.g;
+
 
 public class BookData {
 	public static final String ORIGINAL="OrigDataBase.txt";
@@ -29,19 +31,15 @@ public class BookData {
                 parts=line.split("\t");
                 }
             String temp="";
-            int count=0;
-            int titlestart=0;
-            for (int i=0;i<parts.length;i++){
-                if (temp.substring(i,i+1)=="\""){
-                	count++;
-                	if (count==1)
-                	titlestart=i;
-                	else if (count==2)
-                		title=parts.length;
-                	
-                }
-            }  
-
+            String a="";
+            BookOrder b=null;
+            int c=0;
+            double d=0.0;
+            String e="";
+            Book.g f=null;
+            Book cycle=new Book(a, b, c, d, e, f); 
+            orig.add(cycle);
+            
             // Always close files.
             bufferedReader.close();            
         }
