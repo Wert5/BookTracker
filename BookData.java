@@ -24,17 +24,28 @@ public class BookData {
             BufferedReader bufferedReader = 
                 new BufferedReader(fileReader);
             String line="";
-            String[] parts;
+            String[] parts=null;
             while((line = bufferedReader.readLine()) != null) {
                 parts=line.split("\t");
-                System.out.println(parts.length);
-                if(parts.length>0)
-                System.out.println(parts[0]);
-            }    
+                }
+            String temp="";
+            int count=0;
+            int titlestart=0;
+            for (int i=0;i<parts.length;i++){
+                if (temp.substring(i,i+1)=="\""){
+                	count++;
+                	if (count==1)
+                	titlestart=i;
+                	else if (count==2)
+                		title=parts.length;
+                	
+                }
+            }  
 
             // Always close files.
             bufferedReader.close();            
         }
+		
         catch(FileNotFoundException ex) {
 			System.out.println(
                 "Unable to open file '" + 
@@ -48,5 +59,22 @@ public class BookData {
 	            // ex.printStackTrace();
 	    }
 		return orig;
+	}
+	
+	public void findDataTitle(){
+		
+		int count=4;
+		while (count>0){
+			
+		}
+		
+	}
+	
+	public void findDataISBN(){
+		
+	}
+	
+	public void findDataAuthor(){
+		
 	}
 }
