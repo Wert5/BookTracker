@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 /*
  * This class represents a book. it stores data and formats a string about the book.
@@ -42,7 +41,7 @@ public class Book {
 	public String getIsbn() {
 		return isbn;
 	}
-	public int getGrade() {
+	public g getGrade() {
 		return grade;
 	}
 	
@@ -65,7 +64,11 @@ public class Book {
 		r+=""+toLength(""+total,4,' ')+""+ sep;
 		r+=""+toLength(""+(int)price+"."+toLength(""+(int)(price*100%100),2,'0'),6,' ')+""+sep;
 		r+=toLength(isbn,20,' ')+sep;
-		r+=toLength(""+grade,2,' ');
+		if(!grade.equals(g.AP)){
+			r+=toLength(""+(grade.ordinal()+9),2,' ');
+		}else{
+			r+="AP";
+		}
 		return r;
 	}
 	
