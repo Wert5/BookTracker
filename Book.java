@@ -23,6 +23,10 @@ public class Book {
 		this.grade = grd;
 	}
 	
+	public String getTitle() {
+		return title;
+	}
+
 	public BookOrder getStore() {
 		return store;
 	}
