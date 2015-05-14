@@ -1,11 +1,17 @@
 
-public class Starter {
 
+public class Start {
+
+	/**
+	 * @param args
+	 * Main method to start window
+	 * currently used for testing
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		BookData bd=new BookData();
 		BookWindow bw=new BookWindow();
 		bw.setVisible(true);
 	}
 
 }
+
