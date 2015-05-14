@@ -53,7 +53,7 @@ Death of a Salesman (Penguin - SC)	11	12	55	$8.00	0-14-048134-6
 "Doll’s House, A (found in Four Great Plays by Henrik Ibsen) (Bantam)"	11	24	86	$5.00	0-553-21280-X			
 East of Eden (Penguin - SC - green 1999) ***ISBN Problem	11	12	58	$12.00	0-14-018639-5			
 Education of Little Tree The (New Mexico Press - SC -  1999&2000) 	9	12	36	$10.00	0-8263-0879-1			
-Education of Little Tree The (New Mexico Press - SC -  1999&2000) 	9	5	xx	$10.00	0-8263-0879-1			
+/Education of Little Tree The (New Mexico Press - SC -  1999&2000) 	9	5	xx	$10.00	0-8263-0879-1			
 "Emma (Brown, SC)"	9	12	30	$13.00	9781-493663644			
 Enders Game (Tor Science Fiction - SC - black 2007)	9	5	293	$5.00	0-8125-5070-6			
 Enemy of the People (Found in Four Great Plays by Henrik Ibsen)  (Bantam)	10	24	86	$5.00	0-553-21280-X			
@@ -148,14 +148,14 @@ Merchant of Venice (Washington Sq. Press - Folger - SC - green 2005)	10	24	160	$
 Models for Writers (Bedford/St. Martins - SC - white 2005)	9/10	24	30	$50.00	0-312-40686-X			
 Monkey Bridge (Penguin - SC - 2010)	12	24	150	$14.00	978-0-14-026361-9			
 Much Ado About Nothing (Washington Sq. Press - Folger - SC - green 2000)	10	24	78	$4.00	0-671-72280-8			
-Multicultural Perspectives			10					
-Murder in the Cathedral		5						
+/Multicultural Perspectives			10					
+/Murder in the Cathedral		5						
 My Antonia (Mariner - SC-2013)	9	12	12	$5.00	978-0-395-75514-3			
 "Namesake, The (Mariner - SC - 2010)"	12	24	164	$11.00	978-0-618-48522-2			
 Narrative of the Life of Frederick Douglass (Signet - SC - 2010)	AP	24	117	$4.00	0-451-52994-7			
 Nectar In A Sieve (Signet - SC - yellow/orange 2002)	9	5	90	$6.00	0-451-52823-9			
 "New World Reader, The (HM - SC - white - 2007)"	HH	12	41		0-618-39594-6			
-Nickel and Dimed		12						
+/Nickel and Dimed		12						
 Night (Bantam - HC - white 1994-2001)	10	24	61	$18.00	0-8124-1754-2			
 Night (VHPS  - SC  - 2007)	10	24	320	$8.00	0-374-50001-0			
 Nineteen Eighty-Four (1984)  	10	24	330	$7.00	0-451-52493-4			
@@ -197,13 +197,13 @@ Pride and Prejudice (SC Dover beige 2015)	AP	24	40	$3.00	978-0-486-28473-6
 Prose Reader	11	5	60	$19.00				
 Pygmalion (Penguin) - white	10	24	50	$6.00	01-4045022-x			
 Pygmalion (Penguin) - black	10	24	30	$6.00	0-141-43950-5			
-Pygmalion		5						
+/Pygmalion		5						
 "Raisin in the Sun, A (Anchor - SC - black/white 2008)"	9	12	152	$5.00	0-679-75533-3			
 "Raisin in the Sun, A (ML - Literature Connections - HC - blue/purple 2000)"	9	12	138	$27.00	0-395-77552-3			
 "Raisin in the Sun, A (Vintage - HC - black/white 2003)"	9	12	56	$13.00	0-8124-1649-X			
 Reading Lolita in Tehran (Random House - SC - beige 2008)	12	24	52	$9.00	0-8129-7106-X			
 Reading Skills Handbook (H-M - SC - pink)		12	26		0-395-96238-2			
-Romeo and Juliet - Parallel Text (PL - SC - white 2002) 	9	12		$10.00	0-7891-2252-9			
+/Romeo and Juliet - Parallel Text (PL - SC - white 2002) 	9	12		$10.00	0-7891-2252-9			
 Romeo and Juliet - Parallel Text (PL - HC - white 2002) 	9	12	67	$16.00	0-7891-2252-9			
 Romeo and Juliet (ML - Literature Connections - HC - blue 1999)	9	12	39	$17.00	0-395-77537-X			
 Romeo and Juliet (Wash. Sq. Press - Folgers - HC)	9	12	232	$11.00	0-8124-1655-4			
@@ -216,7 +216,7 @@ Siddhartha (Bantam - SC - purple 1990)	AP	5	28	$4.00	0-553-20884-5
 Siddhartha (New Directions - HC - black 1997)	AP	5	28	$14.00	0-8112-0068-X			
 Song of Solomon (Vintage - SC -07/09/10)	AP	24	114	$10.00	1-4000-3342-3			
 Sound and Sense (Thomson Wadsworth - SC - gold/blue)	11	12	245	$25.00	0-8384-0746-3			
-Sounds of Waves		5						
+/Sounds of Waves		5						
 Spoon River Anthology (Touchstone S&S - SC - brown)	9	5	289	$9.00	0-7432-5507-0			
 "Stranger, The (Rand - SC - 2007)  "	12	24	122	$12.00	0-679-72020-0			
 "Streetcar Named Desire, A  (Signet -SC-1996)"	11	12	79	$9.00				
@@ -238,7 +238,7 @@ To Kill a Mockingbird – (Warner - SC - lavender)	9	12	160	$5.00	0-446-31078-6
 To Kill A Mockingbird (Warner - HC - purple)	9	12	225	$13.00	0-8124-1680-5			
 To Kill a Mockingbird Screenplay (ML -HC - brown/blue) 	9	5	57	$13.00	0-395-79678-4			
 "Tragedy: Plays, Theory and Criticism (Harbrace - SC - white 1997)"	12	24	69	$19.00	0-15-592346-3			
-Turn of the Screw and Daisy Miller								
+/Turn of the Screw and Daisy Miller								
 Waiting for Godot (Grove - SC - black 2007)	12	24	115	$3.00	0-8021-3034-8			
 Walden & Civil Disobedience (Signet - SC - orange  97/08)	AP	24	109	$7.00	0-451-52945-6			
 "Way to Rainy Mountain, The (Univ. of New Mexico Press - SC -02/08/10)"	AP	24	117	$17.00	0-8263-0436-2			
@@ -247,19 +247,17 @@ Woman Warrior (Vintage - HC - 2010)	AP	24	110	$18.00	0-78073684-2
 Woman Warrior (Vintage - SC - 2011)	AP	24	84	$11.00	0-679-72188-8			
 Yellow Raft in Blue Water (Warner - HC - yellow 1993)	12	24	26	$17.00	0-8335-1903-4			
 Yellow Raft in Blue Water (Warner - SC - gray 1997)	12	24	60	$10.00	0-446-38787-8			
-								
-The American Heritage College Dictionary                                                                                                                                     		15	30					
-The American Heritage Dictionary (Softcover)		14	18					
-Webster’s II New College Dictionary		15	16					
-The American Heritage Dictionary (High School Edition)		15	18					
-The American Heritage College Dictionary		24	27					
-Reading Skills Handbook (Houghton-Mifflin - SC - peach 2001)		24			0-395-96238-2			
-Roget’s Thesaurus (Random House)		24	8					
-Roget’s Thesaurus (Random House)			8					
-Roget’s Thesaurus (Random House)			8					
-Write for College								
-Writers Inc		24						
-								
+/The American Heritage College Dictionary                                                                                                                                     		15	30					
+/The American Heritage Dictionary (Softcover)		14	18					
+/Webster’s II New College Dictionary		15	16					
+/The American Heritage Dictionary (High School Edition)		15	18					
+/The American Heritage College Dictionary		24	27					
+/Reading Skills Handbook (Houghton-Mifflin - SC - peach 2001)		24			0-395-96238-2			
+/Roget’s Thesaurus (Random House)		24	8					
+/Roget’s Thesaurus (Random House)			8					
+/Roget’s Thesaurus (Random House)			8					
+/Write for College								
+/Writers Inc		24
 Dances with Wolves (Fawcett - SC - black/costner 1999)	9	5	58	$3.21	0-449-13448-2			
 Murder in the Cathedral		5	38	$2.95				
 Norton Reader		5	41		0-393-97384-0			
@@ -269,9 +267,4 @@ Six Great Modern Plays (including The Glass Menagerie and All My Sons) SC		5	30	
 Six Great Modern Plays (Covercraft)		5	30	$8.88				
 Sound of Waves		5	33	$15.05				
 Stones from the River (Scribner - SC - white)	11	5	10	$9.10	0-684-844-77-X			
-"Turn of the Screw/Daisy Miller, The (Dell - SC - assorted)"	11	5	47	$2.97	0-440-39154-7			
-								
-								
-								
-								
-								
+"Turn of the Screw/Daisy Miller, The (Dell - SC - assorted)"	11	5	47	$2.97	0-440-39154-7										

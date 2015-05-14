@@ -42,9 +42,13 @@ public class BookData {
 	                    if(parts.length<1){
 	                    	break;
 	                    }
-	                    System.out.println(parts[4]);
-	                    isbn=parts[5];
-	                    if(parts[4].length()==0||parts[4].charAt(0)!='$'){
+	                    System.out.println(line);
+	                    if(parts.length==5){
+	                    	isbn="none";
+	                    }else{
+	                    	isbn=parts[5];
+	                    }
+	                    if(parts[4].length()!=0&&parts[4].charAt(0)!='$'){
 	                    	price=Double.parseDouble(parts[4].substring(1,parts[4].length()));
 	                    }else{
 	                    	price=0;
@@ -68,6 +72,8 @@ public class BookData {
 		            	BookOrder tempOrder=new BookOrder(roomNumber,numberbooks,"");
 			            Book cycle=new Book(bookTitle, tempOrder, numberbooks, price, isbn, enumGrade); //,int tot,double p,String i,g grd
 			            orig.add(cycle);
+					}else{
+						System.out.println(line);
 					}
 		            line = bufferedReader.readLine();
             }
