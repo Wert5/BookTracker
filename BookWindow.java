@@ -27,9 +27,9 @@ public class BookWindow extends JFrame {
 	public BookWindow(){
 		super();
 		this.setTitle("Books");
-		this.setSize(1000,700);
+		this.setSize(1200,800);
 		this.setResizable(false);
-		this.setLocation(10, 10);
+		this.setLocation(40, 50);
 		JLabel h = new JLabel("Hello");
 		h.setVisible(true);
 		//b.addLayoutComponent(h, BorderLayout.NORTH);
