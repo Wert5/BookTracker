@@ -1,9 +1,11 @@
+
 import java.util.ArrayList;
 /*
  * This class represents a book. it stores data and formats a string about the book.
  */
 
 public class Book {
+	public enum g {NINE,TEN,ELEVEN,TWELVE,AP};
 	public static final String sep=" | ";
 	private String title;
 	private BookOrder store;
@@ -11,9 +13,9 @@ public class Book {
 	private ArrayList<BookOrder> orders=new ArrayList<BookOrder>();
 	private double price=0;
 	private String isbn="";
-	private int grade=0;
+	private g grade;
 	
-	public Book(String t,BookOrder bo,int tot,double p,String i,int grd){
+	public Book(String t,BookOrder bo,int tot,double p,String i,g grd){
 		this.title=t;
 		this.store = bo;
 		this.total = tot;
