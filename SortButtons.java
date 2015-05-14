@@ -48,7 +48,7 @@ public class SortButtons extends JPanel implements ActionListener{
 				JOptionPane.showMessageDialog(this, "Sorting by "+ae.getActionCommand().toLowerCase());
 				Book[] test = new Book[50];//For Testing only
 				for(int i=0;i<test.length;i++){
-					test[i]=new Book(ae.getActionCommand(),new BookOrder(100,100,""),100,123.6,"a643524523542354235423646sadgsadgdgfad",1);
+					test[i]=new Book(ae.getActionCommand(),new BookOrder(100,100,""),100,123.6,"a643524523542354235423646sadgsadgdgfad",Book.g.AP);
 				}
 				window.setList(test);
 				window.repaint();

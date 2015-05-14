@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 
-public class orderDisplay extends JPanel {
+public class OrderDisplay extends JPanel {
 
 	/**
 	 * 
@@ -16,7 +16,7 @@ public class orderDisplay extends JPanel {
 	private DefaultListModel ordMod;
 	private JScrollPane scroll;
 
-	public orderDisplay() {
+	public OrderDisplay() {
 		// TODO Auto-generated constructor stub
 		super();
 		

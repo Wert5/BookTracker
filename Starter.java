@@ -1,6 +1,6 @@
 
 
-public class Start {
+public class Starter {
 
 	/**
 	 * @param args
