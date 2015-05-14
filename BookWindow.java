@@ -56,7 +56,7 @@ public class BookWindow extends JFrame {
 		//for(int i=0;i<test.length;i++){
 			//test[i]=new Book("abbbbMMMmmm",new BookOrder(100,100,""),100,123.6,"a643524523542354235423646sadgsadgdgfad",Book.g.AP);
 		//}
-		initList(bd.getOrig().toArray(new Book[12321312]));
+		initList(bd.getOrig().toArray(new Book[bd.getOrig().size()]));
 	}
 	
 	public void initList(Book[] b){

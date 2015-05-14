@@ -42,7 +42,6 @@ public class BookData {
 	                    if(parts.length<1){
 	                    	break;
 	                    }
-	                    System.out.println(line);
 	                    if(parts.length==5){
 	                    	isbn="none";
 	                    }else{
