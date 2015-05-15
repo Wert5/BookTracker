@@ -1,35 +1,34 @@
-import java.awt.*; 
-2 import java.awt.event.*; 
-3 import javax.swing.*; 
-4 
- 
-5 public class BookWindow extends JFrame { 
-6 	/** 
-7 	 *  
-8 	 */ 
-9 	private static final long serialVersionUID = 1L; 
-10 	private SortButtons sort=new SortButtons(this); 
-11 	private JList bookList; 
-12 	private DefaultListModel bookMod; 
-13 	private JScrollPane scroll; 
-14 	 
-15 	public BookWindow(){ 
-16 		super(); 
-17 		this.setTitle("BookTester BETA (Secure Information, DO NOT RELEASE)"); 
-18 		this.setSize(1200,800); 
-19 		this.setResizable(false); 
-20 		this.setLocation(40, 50); 
-21 		JLabel h = new JLabel("Hello"); 
-22 		h.setVisible(true); 
-23 		//b.addLayoutComponent(h, BorderLayout.NORTH); 
-24 		this.setLayout(new GridBagLayout()); 
-25 		addComponents(); 
-26 		addWindowListener(new WindowAdapter() { 
-27 		  	public void windowClosing(WindowEvent e) { 
-28 			   System.exit(0); 
-29 		  	} //windowClosing 
-30 		} ); 
-31 	} 
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class BookWindow extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private SortButtons sort=new SortButtons(this);
+	private JList bookList;
+	private DefaultListModel bookMod;
+	private JScrollPane scroll;
+	
+	public BookWindow(){
+		super();
+		this.setTitle("BookTester BETA (Secure Information, DO NOT RELEASE)");
+		this.setSize(1200,800);
+		this.setResizable(false);
+		this.setLocation(40, 50);
+		JLabel h = new JLabel("Hello");
+		h.setVisible(true);
+		//b.addLayoutComponent(h, BorderLayout.NORTH);
+		this.setLayout(new GridBagLayout());
+		addComponents();
+		addWindowListener(new WindowAdapter() {
+		  	public void windowClosing(WindowEvent e) {
+			   System.exit(0);
+		  	} //windowClosing
+		} );
+	}
 
 	
 	public void addComponents(){
