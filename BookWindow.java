@@ -29,7 +29,7 @@ public class BookWindow extends JFrame {
 	public BookWindow(){
 		super();
 		this.setTitle("Books");
-		this.setSize(1000,700);
+		this.setSize(1000,800);
 		this.setResizable(false);
 		this.setLocation(10, 10);
 		JLabel h = new JLabel("Hello");
@@ -42,6 +42,10 @@ public class BookWindow extends JFrame {
 			   System.exit(0);
 		  	} //windowClosing
 		} );
+	}
+	
+	public static void stuff2(){
+		System.out.println("pasted");
 	}
 	
 	public void addComponents(){
