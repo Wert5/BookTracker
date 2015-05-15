@@ -1,6 +1,19 @@
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
 
 public class BookWindow extends JFrame {
 	/**
@@ -8,16 +21,17 @@ public class BookWindow extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private SortButtons sort=new SortButtons(this);
-	private JList bookList;
+	protected JList bookList;
 	private DefaultListModel bookMod;
 	private JScrollPane scroll;
+	private BookData bd;
 	
 	public BookWindow(){
 		super();
-		this.setTitle("BookTester BETA (Secure Information, DO NOT RELEASE)");
-		this.setSize(1200,800);
+		this.setTitle("Books");
+		this.setSize(1000,700);
 		this.setResizable(false);
-		this.setLocation(40, 50);
+		this.setLocation(10, 10);
 		JLabel h = new JLabel("Hello");
 		h.setVisible(true);
 		//b.addLayoutComponent(h, BorderLayout.NORTH);
@@ -29,7 +43,6 @@ public class BookWindow extends JFrame {
 		  	} //windowClosing
 		} );
 	}
-
 	
 	public void addComponents(){
 		GridBagConstraints c=new GridBagConstraints();
