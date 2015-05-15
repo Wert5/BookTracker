@@ -19,13 +19,33 @@ public class OrderDisplay extends JPanel {
 	public OrderDisplay() {
 		// TODO Auto-generated constructor stub
 		super();
-		
+		init();
 	}
 	private void init(){
 		ordMod=new DefaultListModel();
 		ordList=new JList(ordMod);
 		scroll=new JScrollPane(ordList);
 		this.add(scroll);
+		this.setVisible(true);
+	}
+	public void setList(BookOrder[] b){
+		if(b.length<=ordMod.getSize()){
+			int i=0;
+			for(i=0;i<b.length;i++){
+				ordMod.set(i, b[i]);
+			}
+			while(ordMod.getSize()>b.length){
+				ordMod.remove(ordMod.getSize()-1);
+			}
+		}else{
+			int i=0;
+			for(i=0;i<ordMod.getSize();i++){
+				ordMod.set(i, b[i]);
+			}
+			for(;i<b.length;i++){
+				ordMod.add(i, b[i]);
+			}
+		}
 	}
 
 }
