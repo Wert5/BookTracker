@@ -42,7 +42,7 @@ public class BookData {
 	                    if(parts.length<1){
 	                    	break;
 	                    }
-	                    if(parts.length==5){
+	                    if(parts.length<6){
 	                    	isbn="none";
 	                    }else{
 	                    	isbn=parts[5];
@@ -57,16 +57,19 @@ public class BookData {
 	                    grade=(parts[1]);
 	                    bookTitle=parts[0];
 	                    //to change grade to enum
-		            	if (grade=="9")
-		            		enumGrade=Book.g.NINE;
-		            	else if (grade=="10")
-		            		enumGrade=Book.g.TEN;
-		            	else if (grade=="11")
-		            		enumGrade=Book.g.ELEVEN;
-		            	else if (grade=="12")
-		            		enumGrade=Book.g.TWELVE;
-		            	else
-		            		enumGrade=Book.g.AP;
+		            	if (grade.equals("9")){
+		            		enumGrade=Book.g.NINE;}
+		            	else if (grade.equals("10")){
+		            		enumGrade=Book.g.TEN;}
+		            	else if (grade.equals("11")){
+		            		enumGrade=Book.g.ELEVEN;}
+		            	else if (grade.equals("12")){
+		            		enumGrade=Book.g.TWELVE;}
+		            	else if (grade.equals("AP")){
+		            		enumGrade=Book.g.AP;}
+		            	else {
+		            		enumGrade=Book.g.TEN;}
+		            	
 		            	
 		            	BookOrder tempOrder=new BookOrder(roomNumber,numberbooks,"");
 			            Book cycle=new Book(bookTitle, tempOrder, numberbooks, price, isbn, enumGrade); //,int tot,double p,String i,g grd
