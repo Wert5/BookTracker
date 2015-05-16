@@ -1,3 +1,4 @@
+import java.awt.Dimension;
 import java.awt.LayoutManager;
 
 import javax.swing.DefaultListModel;
@@ -26,6 +27,7 @@ public class OrderDisplay extends JPanel {
 		ordList=new JList(ordMod);
 		scroll=new JScrollPane(ordList);
 		this.add(scroll);
+		this.setPreferredSize(new Dimension(100,600));
 		this.setVisible(true);
 	}
 	public void setList(BookOrder[] b){
