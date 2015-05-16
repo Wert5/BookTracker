@@ -27,7 +27,7 @@ public class OrderDisplay extends JPanel {
 		ordList=new JList(ordMod);
 		scroll=new JScrollPane(ordList);
 		this.add(scroll);
-		this.setPreferredSize(new Dimension(100,600));
+		this.setPreferredSize(new Dimension(100,1000));
 		this.setVisible(true);
 	}
 	public void setList(BookOrder[] b){

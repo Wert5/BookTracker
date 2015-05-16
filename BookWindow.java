@@ -32,7 +32,7 @@ public class BookWindow extends JFrame implements ListSelectionListener{
 	public BookWindow(){
 		super();
 		this.setTitle("Books");
-		this.setSize(1000,700);
+		this.setSize(1200,800);
 		this.setResizable(false);
 		this.setLocation(10, 10);
 		JLabel h = new JLabel("Hello");
@@ -40,8 +40,9 @@ public class BookWindow extends JFrame implements ListSelectionListener{
 		//b.addLayoutComponent(h, BorderLayout.NORTH);
 		this.setLayout(new GridBagLayout());
 		addComponents();
-		addWindowListener(new WindowAdapter() {
+		this.addWindowListener(new WindowAdapter() {
 		  	public void windowClosing(WindowEvent e) {
+			   System.out.println("closing");
 			   System.exit(0);
 		  	} //windowClosing
 		} );
