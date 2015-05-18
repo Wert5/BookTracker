@@ -1,5 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
 
 /**
@@ -48,7 +50,12 @@ public class SortButtons extends JPanel implements ActionListener{
 				JOptionPane.showMessageDialog(this, "Sorting by "+ae.getActionCommand().toLowerCase());
 				Book[] test = new Book[50];//For Testing only
 				for(int i=0;i<test.length;i++){
-					test[i]=new Book(ae.getActionCommand(),new BookOrder(100,100,""),100,123.6,"a643524523542354235423646sadgsadgdgfad",Book.g.AP);
+					test[i]=new Book(ae.getActionCommand(),new BookOrder(100,100,"Hello"),100,123.6,"a643524523542354235423646sadgsadgdgfad",Book.g.AP);
+					ArrayList<BookOrder> orders=new ArrayList<BookOrder>();
+					for(int k=0;k<50;k++){
+						orders.add(new BookOrder(20,13,"winstonssssssssssss"));
+					}
+					test[i].setOrders(orders);
 				}
 				window.setList(test);
 				window.repaint();

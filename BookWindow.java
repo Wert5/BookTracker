@@ -14,8 +14,10 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
-public class BookWindow extends JFrame {
+public class BookWindow extends JFrame implements ListSelectionListener{
 	/**
 	 * 
 	 */
@@ -25,11 +27,12 @@ public class BookWindow extends JFrame {
 	private DefaultListModel bookMod;
 	private JScrollPane scroll;
 	private BookData bd;
+	public OrderDisplay ord;
 	
 	public BookWindow(){
 		super();
 		this.setTitle("Books");
-		this.setSize(1000,700);
+		this.setSize(1200,800);
 		this.setResizable(false);
 		this.setLocation(10, 10);
 		JLabel h = new JLabel("Hello");
@@ -37,8 +40,9 @@ public class BookWindow extends JFrame {
 		//b.addLayoutComponent(h, BorderLayout.NORTH);
 		this.setLayout(new GridBagLayout());
 		addComponents();
-		addWindowListener(new WindowAdapter() {
+		this.addWindowListener(new WindowAdapter() {
 		  	public void windowClosing(WindowEvent e) {
+			   System.out.println("closing");
 			   System.exit(0);
 		  	} //windowClosing
 		} );
@@ -76,7 +80,23 @@ public class BookWindow extends JFrame {
 		scroll = new JScrollPane(bookList);
 		scroll.setPreferredSize(new Dimension((int)sort.getPreferredSize().getWidth(),500));
 		this.add(scroll,c);
-		this.repaint();
+		initOrder();
+	}
+	
+	private void initOrder(){
+		ord=new OrderDisplay();
+		GridBagConstraints c=new GridBagConstraints();
+		c.gridx=7;
+		c.gridy=2;
+		c.fill=GridBagConstraints.BOTH;
+		this.add(ord,c);
+		this.bookList.addListSelectionListener(this);
+	}
+
+	@Override
+	public void valueChanged(ListSelectionEvent ls) {
+		Book chosen = (Book)bookMod.getElementAt(ls.getFirstIndex());
+		ord.setList(chosen.getOrders().toArray(new BookOrder[chosen.getOrders().size()]));
 	}
 	
 	public void setList(Book[] b){

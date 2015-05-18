@@ -15,4 +15,22 @@ public class BookOrder {
 		num=n;
 		teacher=t;
 	}
+	
+	private String toLength(String a, int l,char pad){
+		if(a.length()>=l){
+			return a.substring(0,l);
+		}
+		while(a.length()<l){
+			a+=""+pad;
+		}
+		return a;
+	}
+	
+	public String toString(){
+		String result = "";
+		result+=room+" | ";
+		result+=num+" | ";
+		result+=toLength(teacher,10,' ');
+		return result;
+	}
 }
