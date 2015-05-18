@@ -88,6 +88,7 @@ public class BookWindow extends JFrame implements ListSelectionListener{
 		GridBagConstraints c=new GridBagConstraints();
 		c.gridx=7;
 		c.gridy=2;
+		c.fill=GridBagConstraints.BOTH;
 		this.add(ord,c);
 		this.bookList.addListSelectionListener(this);
 	}

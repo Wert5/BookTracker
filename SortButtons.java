@@ -52,7 +52,9 @@ public class SortButtons extends JPanel implements ActionListener{
 				for(int i=0;i<test.length;i++){
 					test[i]=new Book(ae.getActionCommand(),new BookOrder(100,100,"Hello"),100,123.6,"a643524523542354235423646sadgsadgdgfad",Book.g.AP);
 					ArrayList<BookOrder> orders=new ArrayList<BookOrder>();
-					orders.add(new BookOrder(20,13,"winstonssssssssssss"));
+					for(int k=0;k<50;k++){
+						orders.add(new BookOrder(20,13,"winstonssssssssssss"));
+					}
 					test[i].setOrders(orders);
 				}
 				window.setList(test);
