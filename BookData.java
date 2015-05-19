@@ -1,9 +1,15 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
+import Book.g;
 
 
 public class BookData {
@@ -97,6 +103,80 @@ public class BookData {
 	            // ex.printStackTrace();
 	    }
 		return orig;
+	}
+	
+	public void saveData(String fileName, ArrayList<Book> books){
+		try {
+            // FileReader reads text files in the default encoding.
+            FileWriter fileSaveNew= new FileWriter(fileName);
+            // Always wrap FileReader in BufferedReader.
+            BufferedWriter bufferedSaveNew = new BufferedWriter(fileSaveNew);
+            String add2File;
+            String title,isbn;
+			Book.g grade;
+			double price;
+			BookOrder tempH;
+			ArrayList<BookOrder> arrayRoom;
+			int total, numberb;
+            for (Book b:books){
+            	title=b.getTitle();
+            	total=b.getTotal();
+            	price=b.getPrice();
+            	isbn=b.getIsbn();
+            	grade=b.getGrade();
+            	arrayRoom=b.getOrders();
+            	tempH=arrayRoom.get(0);
+            	numberb=tempH.getRoom();
+            	add2File=title+" "+grade+" "+numberb+" "+total+" "+price+" "+isbn;
+            	
+            }
+            		}
+		  catch(FileNotFoundException ex) {
+				System.out.println(
+	                "Unable to open file '" + 
+	                ORIGINAL + "'"+ex.getMessage());                
+	        }
+			catch(IOException ex) {
+		            System.out.println(
+		                "Error reading file '" 
+		                + ORIGINAL + "'"+ex.getMessage());                   
+		            // Or we could just do this: 
+		            // ex.printStackTrace();
+	
+		    }
+		
+		
+	}
+	
+	public void editFile(ArrayList<Book> content, String fileName){
+		FileOutputStream fop = null;
+		File file;
+ 
+		try {
+ 
+			file = new File("OrigDataBase.txt");
+			fop = new FileOutputStream(file);
+ 
+			// get the content in bytes
+			byte[] contentInBytes = content.getBytes();
+ 
+			fop.write(contentInBytes);
+			fop.flush();
+			fop.close();
+ 
+			System.out.println("Done");
+ 
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (fop != null) {
+					fop.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public static ArrayList<Book> getOrig() {
