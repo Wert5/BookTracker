@@ -1,11 +1,17 @@
 import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
 
-public class ActPanel extends JPanel {
+public class ActPanel extends JPanel implements ActionListener{
 	private BookWindow wind;
+	private JButton del;
+	private JButton add;
+	private JButton ret;
+	private JButton chk;
 
 	public ActPanel(BookWindow bw) {
 		// TODO Auto-generated constructor stub
@@ -30,18 +36,27 @@ public class ActPanel extends JPanel {
 	}
 	
 	private void init(){
-		JButton temp=new JButton("Add New Book");
-		this.add(temp);
-		temp.addActionListener(wind);
-		temp=new JButton("Delete Book");
-		this.add(temp);
-		temp.addActionListener(wind);
-		temp=new JButton("Return Book");
-		this.add(temp);
-		temp.addActionListener(wind);
-		temp=new JButton("Check Out Book");
-		this.add(temp);
-		temp.addActionListener(wind);
+		add=new JButton("Add New Book");
+		this.add(add);
+		add.addActionListener(this);
+		del=new JButton("Delete Book");
+		this.add(del);
+		del.addActionListener(this);
+		ret=new JButton("Return Book");
+		this.add(ret);
+		ret.addActionListener(this);
+		chk=new JButton("Check Out Book");
+		this.add(chk);
+		chk.addActionListener(this);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource()==del){
+			
+		}
+		
 	}
 
 }
