@@ -1,5 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Insets;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,10 +33,14 @@ public class OrderDisplay extends JPanel implements ActionListener {
 		init();
 	}
 	private void init(){
-		buts=new JPanel();
-		rm=new JButton("Rm");
+		buts=new JPanel(new FlowLayout());
+		((FlowLayout)buts.getLayout()).setAlignment(FlowLayout.LEFT);
+		rm=new JButton("Room");
+		rm.setMargin(new Insets(0,0,0,0));
 		num=new JButton("Num");
+		num.setMargin(new Insets(0,0,0,0));
 		teach=new JButton("Teach");
+		teach.setMargin(new Insets(0,30,0,30));
 		buts.add(rm);
 		buts.add(num);
 		buts.add(teach);
