@@ -45,8 +45,7 @@ public class OrderDisplay extends JPanel implements ActionListener {
 		ordList=new JList(ordMod);
 		scroll=new JScrollPane(ordList);
 		this.add(scroll);
-		scroll.setMinimumSize(new Dimension(700,1000));
-		this.setMinimumSize(new Dimension(500,1000));
+		this.setMinimumSize(new Dimension(200,500));
 		this.setVisible(true);
 	}
 	public void setList(BookOrder[] b){
