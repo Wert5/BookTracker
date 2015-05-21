@@ -38,13 +38,24 @@ public class BookData {
             String[] parts={" "};
             line = bufferedReader.readLine();
             line = bufferedReader.readLine();
-            line = bufferedReader.readLine();
 			while(line != null) {
 					if(line.charAt(0)!='/'){
 	                    parts=line.split("\t");
 	                    if(parts.length<1){
 	                    	break;
 	                    }
+	                    if (parts.length==0) {
+	                     	missingbooks=0;
+	                     }else{
+	                    	 try {
+	                    		 missingbooks=Integer.parseInt(parts[6]);
+	                    		 System.out.println(missingbooks);
+	                    		}
+	                    		catch(ArrayIndexOutOfBoundsException exception) {
+	                    		   missingbooks=0;
+	                    		   
+	                    		}
+	                     }
 	                    //add finding missing
 	                    if(parts.length<6){
 	                    	isbn="none";
