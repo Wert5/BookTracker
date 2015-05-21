@@ -29,7 +29,7 @@ public class Book {
 		return title;
 	}
 
-	public BookOrder getStorageRm() {
+	public BookOrder getStore() {
 		return storageRoom;
 	}
 	public int getTotal() {

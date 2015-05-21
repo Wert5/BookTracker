@@ -135,11 +135,10 @@ public class BookData {
             	price=b.getPrice();
             	isbn=b.getIsbn();
             	grade=b.getGrade();
-            	arrayRoom=b.getOrders();
-            	tempH=arrayRoom.get(0);
+            	tempH=b.getStore();
             	numberb=tempH.getRoom();
             	missing=b.getMissing();
-            	add2File=title+" "+grade+" "+numberb+" "+total+" "+price+" "+isbn;
+            	add2File=title+"\t"+grade+"\t"+numberb+"\t"+total+"\t"+price+"\t"+isbn;
             	
             }
             //reads string add2File to the end of the file
