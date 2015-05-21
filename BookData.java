@@ -51,7 +51,7 @@ public class BookData {
 	                    }else{
 	                    	isbn=parts[5];
 	                    }
-	                    if(parts[4].length()!=0&&parts[4].charAt(0)!='$'){
+	                    if(parts[4].length()!=0&&parts[4].charAt(0)=='$'){
 	                    	price=Double.parseDouble(parts[4].substring(1,parts[4].length()));
 	                    }else{
 	                    	price=0;
