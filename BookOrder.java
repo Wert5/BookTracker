@@ -51,10 +51,10 @@ public class BookOrder {
 	}
 
 	public String toString(){
-		String result = "";
-		result+=room+" | ";
-		result+=num+" | ";
-		result+=toLength(teacher,10,' ');
+		String result = "     ";
+		result+=toLength(""+room,4,' ')+"  |   ";
+		result+=toLength(""+num,3,' ')+"  |   ";
+		result+=toLength(teacher,13,' ');
 		return result;
 	}
 }
