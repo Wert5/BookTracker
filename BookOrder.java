@@ -26,6 +26,30 @@ public class BookOrder {
 		return a;
 	}
 	
+	public String getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(String teacher) {
+		this.teacher = teacher;
+	}
+
+	public int getRoom() {
+		return room;
+	}
+
+	public void setRoom(int room) {
+		this.room = room;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
 	public String toString(){
 		String result = "";
 		result+=room+" | ";
@@ -34,3 +58,4 @@ public class BookOrder {
 		return result;
 	}
 }
+
