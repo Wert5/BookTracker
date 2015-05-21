@@ -17,7 +17,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-public class BookWindow extends JFrame implements ListSelectionListener{
+public class BookWindow extends JFrame implements ListSelectionListener ,ActionListener{
 	/**
 	 * 
 	 */
@@ -32,7 +32,7 @@ public class BookWindow extends JFrame implements ListSelectionListener{
 	public BookWindow(){
 		super();
 		this.setTitle("Books");
-		this.setSize(1200,800);
+		this.setSize(1500,800);
 		this.setResizable(false);
 		this.setLocation(10, 10);
 		JLabel h = new JLabel("Hello");
@@ -50,6 +50,14 @@ public class BookWindow extends JFrame implements ListSelectionListener{
 	
 	public void addComponents(){
 		GridBagConstraints c=new GridBagConstraints();
+		c.gridx=1;
+		c.gridy=3;
+		//c.gridheight=2;
+		ActPanel ap=new ActPanel(this);
+		ap.setMinimumSize(new Dimension(100,500));
+		this.add(ap);
+		c=new GridBagConstraints();
+		c.gridheight=1;
 		c.gridx=2;	
 		c.gridwidth=6;
 		c.gridy=1;
@@ -78,7 +86,7 @@ public class BookWindow extends JFrame implements ListSelectionListener{
 		bookList.setLayoutOrientation(JList.VERTICAL);
 		bookList.setVisibleRowCount(-1);
 		scroll = new JScrollPane(bookList);
-		scroll.setPreferredSize(new Dimension((int)sort.getPreferredSize().getWidth(),500));
+		scroll.setMinimumSize(new Dimension((int)sort.getPreferredSize().getWidth(),500));
 		this.add(scroll,c);
 		initOrder();
 	}
@@ -117,6 +125,12 @@ public class BookWindow extends JFrame implements ListSelectionListener{
 				bookMod.add(i, b[i]);
 			}
 		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
