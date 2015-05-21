@@ -1,15 +1,11 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Scanner;
-
-import Book.g;
 
 
 public class BookData {
@@ -29,6 +25,7 @@ public class BookData {
 		int roomNumber,numberbooks;
 		double price;
 		Book.g enumGrade;
+		int missingbooks;
 		try {
             // FileReader reads text files in the default encoding.
             FileReader fileReader = 
@@ -48,6 +45,7 @@ public class BookData {
 	                    if(parts.length<1){
 	                    	break;
 	                    }
+	                    //add finding missing
 	                    if(parts.length<6){
 	                    	isbn="none";
 	                    }else{
@@ -78,7 +76,7 @@ public class BookData {
 		            	
 		            	
 		            	BookOrder tempOrder=new BookOrder(roomNumber,numberbooks,"");
-			            Book cycle=new Book(bookTitle, tempOrder, numberbooks, price, isbn, enumGrade); //,int tot,double p,String i,g grd
+			            Book cycle=new Book(bookTitle, tempOrder, numberbooks, price, isbn, enumGrade,0); //,int tot,double p,String i,g grd
 			            orig.add(cycle);
 					}else{
 						System.out.println(line);
@@ -104,16 +102,18 @@ public class BookData {
 	    }
 		return orig;
 	}
-	
+	//can be used to edit existing file with the same fileName, or append to a new file
 	public void saveData(String fileName, ArrayList<Book> books){
 		try {
             // FileReader reads text files in the default encoding.
             FileWriter fileSaveNew= new FileWriter(fileName);
             // Always wrap FileReader in BufferedReader.
             BufferedWriter bufferedSaveNew = new BufferedWriter(fileSaveNew);
-            String add2File;
+            //turns Book object into strings
+            String add2File="";
             String title,isbn;
 			Book.g grade;
+			int missing;
 			double price;
 			BookOrder tempH;
 			ArrayList<BookOrder> arrayRoom;
@@ -127,9 +127,22 @@ public class BookData {
             	arrayRoom=b.getOrders();
             	tempH=arrayRoom.get(0);
             	numberb=tempH.getRoom();
+            	missing=b.getMissing();
             	add2File=title+" "+grade+" "+numberb+" "+total+" "+price+" "+isbn;
             	
             }
+            //reads string add2File to the end of the file
+        	try
+        	{
+        	    FileWriter fw = new FileWriter(fileName,true); //the true will append the new data
+        	    fw.write("\n"+add2File);//appends the string to the file
+        	    fw.close();
+        	}
+        	catch(IOException ioe)
+        	{
+        	    System.err.println("IOException: " + ioe.getMessage());
+        	}
+        	
             		}
 		  catch(FileNotFoundException ex) {
 				System.out.println(
@@ -148,37 +161,7 @@ public class BookData {
 		
 	}
 	
-	public void editFile(ArrayList<Book> content, String fileName){
-		FileOutputStream fop = null;
-		File file;
- 
-		try {
- 
-			file = new File("OrigDataBase.txt");
-			fop = new FileOutputStream(file);
- 
-			// get the content in bytes
-			byte[] contentInBytes = content.getBytes();
- 
-			fop.write(contentInBytes);
-			fop.flush();
-			fop.close();
- 
-			System.out.println("Done");
- 
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (fop != null) {
-					fop.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-	
+
 	public static ArrayList<Book> getOrig() {
 		return orig;
 	}
