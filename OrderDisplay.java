@@ -1,13 +1,17 @@
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 
-public class OrderDisplay extends JPanel {
+public class OrderDisplay extends JPanel implements ActionListener {
 
 	/**
 	 * 
@@ -16,6 +20,10 @@ public class OrderDisplay extends JPanel {
 	private JList ordList;
 	private DefaultListModel ordMod;
 	private JScrollPane scroll;
+	private JPanel buts;
+	private JButton rm;
+	private JButton num;
+	private JButton teach;
 
 	public OrderDisplay() {
 		// TODO Auto-generated constructor stub
@@ -23,6 +31,16 @@ public class OrderDisplay extends JPanel {
 		init();
 	}
 	private void init(){
+		buts=new JPanel();
+		rm=new JButton("Rm");
+		num=new JButton("Num");
+		teach=new JButton("Teach");
+		buts.add(rm);
+		buts.add(num);
+		buts.add(teach);
+		this.setLayout(new BorderLayout());
+		this.add(buts,BorderLayout.NORTH);
+		
 		ordMod=new DefaultListModel();
 		ordList=new JList(ordMod);
 		scroll=new JScrollPane(ordList);
@@ -50,5 +68,11 @@ public class OrderDisplay extends JPanel {
 			}
 		}
 	}
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
+
