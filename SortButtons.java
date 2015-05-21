@@ -40,7 +40,6 @@ public class SortButtons extends JPanel implements ActionListener{
 		sortBut[5].setMargin(new Insets(0,60,0,60));
 		for(JButton j:sortBut)
 			j.addActionListener(this);
-		this.setMinimumSize(new Dimension(500,30));
 	}
 
 	@Override
