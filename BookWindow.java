@@ -50,7 +50,7 @@ public class BookWindow extends JFrame implements ListSelectionListener{
 	
 	public void addComponents(){
 		GridBagConstraints c=new GridBagConstraints();
-		c.gridx=1;	
+		c.gridx=2;	
 		c.gridwidth=6;
 		c.gridy=1;
 		this.add(sort,c);
@@ -67,7 +67,7 @@ public class BookWindow extends JFrame implements ListSelectionListener{
 		GridBagConstraints c=new GridBagConstraints();
 		c.gridy=2;
 		c.gridwidth=6;
-		c.gridx=1;
+		c.gridx=2;
 		bookMod = new DefaultListModel();
 		for(Book bk:b){
 			bookMod.addElement(bk);
@@ -86,7 +86,7 @@ public class BookWindow extends JFrame implements ListSelectionListener{
 	private void initOrder(){
 		ord=new OrderDisplay();
 		GridBagConstraints c=new GridBagConstraints();
-		c.gridx=7;
+		c.gridx=8;
 		c.gridy=2;
 		c.fill=GridBagConstraints.BOTH;
 		this.add(ord,c);
