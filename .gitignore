@@ -11,3 +11,10 @@
 /OrderDisplay.class
 /Winsto.class
 /titleCompare.class
+/ActPanel.class
+/ISBN_Comparator.class
+/Sort.class
+/availableCopiesComparator.class
+/priceComparator.class
+/roomComparator.class
+/teacherComparator.class
