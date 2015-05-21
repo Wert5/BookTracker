@@ -15,10 +15,10 @@ public class BookData {
 	private static ArrayList<Book> orig = new ArrayList<Book>(1000);
 	
 	public BookData(){
-		loadData();
+		loadData(ORIGINAL);
 	}
 	
-	public ArrayList<Book> loadData(){
+	public ArrayList<Book> loadData(String file){
 		int starTemp=0;
 		int count=0;
 		String bookTitle, isbn, grade;
@@ -29,7 +29,7 @@ public class BookData {
 		try {
             // FileReader reads text files in the default encoding.
             FileReader fileReader = 
-                new FileReader(ORIGINAL);
+                new FileReader(file);
 
             // Always wrap FileReader in BufferedReader.
             BufferedReader bufferedReader = 
@@ -194,3 +194,4 @@ public class BookData {
 		
 	}
 }
+
