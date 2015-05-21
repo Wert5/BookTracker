@@ -40,6 +40,7 @@ public class SortButtons extends JPanel implements ActionListener{
 		sortBut[5].setMargin(new Insets(0,60,0,60));
 		for(JButton j:sortBut)
 			j.addActionListener(this);
+		this.setMinimumSize(new Dimension(500,30));
 	}
 
 	@Override
@@ -50,7 +51,7 @@ public class SortButtons extends JPanel implements ActionListener{
 				JOptionPane.showMessageDialog(this, "Sorting by "+ae.getActionCommand().toLowerCase());
 				Book[] test = new Book[50];//For Testing only
 				for(int i=0;i<test.length;i++){
-					test[i]=new Book(ae.getActionCommand(),new BookOrder(100,100,"Hello"),100,123.6,"a643524523542354235423646sadgsadgdgfad",Book.g.AP);
+					test[i]=new Book(ae.getActionCommand(),new BookOrder(100,100,"Hello"),100,123.6,"a643524523542354235423646sadgsadgdgfad",Book.g.AP,0);
 					ArrayList<BookOrder> orders=new ArrayList<BookOrder>();
 					for(int k=0;k<50;k++){
 						orders.add(new BookOrder(20,13,"winstonssssssssssss"));
@@ -65,3 +66,4 @@ public class SortButtons extends JPanel implements ActionListener{
 	}
 
 }
+
