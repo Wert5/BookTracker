@@ -87,7 +87,7 @@ public class BookData {
 		            	
 		            	
 		            	BookOrder tempOrder=new BookOrder(roomNumber,numberbooks,"");
-			            Book cycle=new Book(bookTitle, tempOrder, numberbooks, price, isbn, enumGrade,0); //,int tot,double p,String i,g grd
+			            Book cycle=new Book(bookTitle, tempOrder, numberbooks+missingbooks, price, isbn, enumGrade,missingbooks); //,int tot,double p,String i,g grd
 			            orig.add(cycle);
 					}else{
 						System.out.println(line);
@@ -131,14 +131,14 @@ public class BookData {
 			int total, numberb;
             for (Book b:books){
             	title=b.getTitle();
-            	total=b.getTotal();
+            	total=b.getStore().getNum();
             	price=b.getPrice();
             	isbn=b.getIsbn();
             	grade=b.getGrade();
             	tempH=b.getStore();
             	numberb=tempH.getRoom();
             	missing=b.getMissing();
-            	add2File=title+"\t"+grade+"\t"+numberb+"\t"+total+"\t"+price+"\t"+isbn;
+            	add2File=title+"\t"+grade+"\t"+numberb+"\t"+total+"\t"+price+"\t"+isbn+"\t"+missing;
             	
             }
             //reads string add2File to the end of the file
@@ -193,4 +193,3 @@ public class BookData {
 		
 	}
 }
-
