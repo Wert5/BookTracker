@@ -5,6 +5,7 @@ import java.awt.Insets;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -26,6 +27,7 @@ public class OrderDisplay extends JPanel implements ActionListener {
 	private JButton rm;
 	private JButton num;
 	private JButton teach;
+	private ArrayList<BookOrder> arr;
 
 	public OrderDisplay() {
 		// TODO Auto-generated constructor stub
@@ -33,6 +35,7 @@ public class OrderDisplay extends JPanel implements ActionListener {
 		init();
 	}
 	private void init(){
+		arr=new ArrayList<BookOrder>();
 		buts=new JPanel(new FlowLayout());
 		((FlowLayout)buts.getLayout()).setAlignment(FlowLayout.LEFT);
 		rm=new JButton("Room");
@@ -59,23 +62,34 @@ public class OrderDisplay extends JPanel implements ActionListener {
 			int i=0;
 			for(i=0;i<b.length;i++){
 				ordMod.set(i, b[i]);
+				arr.set(i,b[i]);
 			}
 			while(ordMod.getSize()>b.length){
 				ordMod.remove(ordMod.getSize()-1);
+				arr.remove(ordMod.getSize()-1);
 			}
 		}else{
 			int i=0;
 			for(i=0;i<ordMod.getSize();i++){
 				ordMod.set(i, b[i]);
+				arr.set(i,b[i]);
 			}
 			for(;i<b.length;i++){
 				ordMod.add(i, b[i]);
+				arr.add(i,b[i]);
 			}
 		}
 	}
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(ActionEvent ae) {
 		// TODO Auto-generated method stub
+		if(ae.getSource()==rm){
+			setList(Sort.sortRoomBO(arr).toArray(new BookOrder[arr.size()]));
+		}else if(ae.getSource()==num){
+			setList(Sort.sortNumBO(arr).toArray(new BookOrder[arr.size()]));
+		}else{
+			setList(Sort.sortTeacher(arr).toArray(new BookOrder[arr.size()]));
+		}
 		
 	}
 
