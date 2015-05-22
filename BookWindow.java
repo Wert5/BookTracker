@@ -151,6 +151,13 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 	public ArrayList<Book> getList(){
 		return arr;
 	}
+	
+	public int getListSize(){
+		return bookMod.getSize();
+	}
 
 }
+
+
+
 
