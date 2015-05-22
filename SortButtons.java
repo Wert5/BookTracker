@@ -46,32 +46,35 @@ public class SortButtons extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent ae) {
 		// TODO Auto-generated method stub
 		if(ae.getSource()==sortBut[0]){
-			window.setList(Sort.sortTitle(window.getList()).toArray(new Book[window.getSize()]));
+			window.setList(Sort.sortTitle(window.getList()).toArray(new Book[window.getListSize()]));
 		}
 		
 		if(ae.getSource()==sortBut[1]){
-			window.setList(Sort.sortNum(window.getList()).toArray(new Book[window.getSize()]));
+			window.setList(Sort.sortNum(window.getList()).toArray(new Book[window.getListSize()]));
 		}
 		
 		if(ae.getSource()==sortBut[2]){
-			window.setList(Sort.sortRoom(window.getList()).toArray(new Book[window.getSize()]));
+			window.setList(Sort.sortRoom(window.getList()).toArray(new Book[window.getListSize()]));
 		}
 		
 		if(ae.getSource()==sortBut[3]){
-			window.setList(Sort.sortNum(window.getList()).toArray(new Book[window.getSize()]));
+			window.setList(Sort.sortNum(window.getList()).toArray(new Book[window.getListSize()]));
 		}
 		
 		if(ae.getSource()==sortBut[4]){
-			window.setList(Sort.sortPrice(window.getList()).toArray(new Book[window.getSize()]));
+			window.setList(Sort.sortPrice(window.getList()).toArray(new Book[window.getListSize()]));
 		}
 		
 		if(ae.getSource()==sortBut[5]){
-			window.setList(Sort.sortISBN(window.getList()).toArray(new Book[window.getSize()]));
+			window.setList(Sort.sortISBN(window.getList()).toArray(new Book[window.getListSize()]));
 		}
 		
 		if(ae.getSource()==sortBut[6]){
-			window.setList(Sort.sortGrade(window.getList()).toArray(new Book[window.getSize()]));
+			window.setList(Sort.sortGrade(window.getList()).toArray(new Book[window.getListSize()]));
 		}
 	}
 
 }
+
+
+
