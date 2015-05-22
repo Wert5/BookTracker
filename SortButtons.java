@@ -45,23 +45,7 @@ public class SortButtons extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 		// TODO Auto-generated method stub
-		for(JButton j:sortBut){
-			if(ae.getSource()==j){
-				JOptionPane.showMessageDialog(this, "Sorting by "+ae.getActionCommand().toLowerCase());
-				Book[] test = new Book[50];//For Testing only
-				for(int i=0;i<test.length;i++){
-					test[i]=new Book(ae.getActionCommand(),new BookOrder(100,100,"Hello"),100,123.6,"a643524523542354235423646sadgsadgdgfad",Book.g.AP,0);
-					ArrayList<BookOrder> orders=new ArrayList<BookOrder>();
-					for(int k=0;k<50;k++){
-						orders.add(new BookOrder(20,13,"winstonssssssssssss"));
-					}
-					test[i].setOrders(orders);
-				}
-				window.setList(test);
-				window.repaint();
-				
-			}
-		}
+		
 	}
 
 }
