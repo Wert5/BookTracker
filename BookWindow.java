@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
@@ -27,7 +28,8 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 	private DefaultListModel bookMod;
 	private JScrollPane scroll;
 	private BookData bd;
-	public OrderDisplay ord;
+	private OrderDisplay ord;
+	private ArrayList<Book> arr;
 	
 	public BookWindow(){
 		super();
@@ -42,7 +44,6 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 		addComponents();
 		this.addWindowListener(new WindowAdapter() {
 		  	public void windowClosing(WindowEvent e) {
-			   System.out.println("closing");
 			   System.exit(0);
 		  	} //windowClosing
 		} );
@@ -79,6 +80,7 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 		bookMod = new DefaultListModel();
 		for(Book bk:b){
 			bookMod.addElement(bk);
+			arr.add(bk);
 		}
 		bookList = new JList(bookMod);
 		bookList.setFont(new Font(Font.MONOSPACED,Font.PLAIN,12));
@@ -112,19 +114,43 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 			int i=0;
 			for(i=0;i<b.length;i++){
 				bookMod.set(i, b[i]);
+				arr.set(i,b[i]);
 			}
 			while(bookMod.getSize()>b.length){
 				bookMod.remove(bookMod.getSize()-1);
+				arr.remove(bookMod.getSize()-1);
 			}
 		}else{
 			int i=0;
 			for(i=0;i<bookMod.getSize();i++){
 				bookMod.set(i, b[i]);
+				arr.set(i,b[i]);
 			}
 			for(;i<b.length;i++){
 				bookMod.add(i, b[i]);
+				arr.add(i,b[i]);
 			}
 		}
 	}
+	
+	public int getSelectionIndex(){
+		return bookList.getSelectedIndex();
+	}
+	
+	public Book getSelection(){
+		return (Book)bookMod.get(bookList.getSelectedIndex());
+	}
+	
+	public void removeListIndex(int ind){
+		bookMod.remove(ind);
+	}
+	
+	public void addBook(Book b){
+		bookMod.addElement(b);
+	}
+	public ArrayList<Book> getList(){
+		return arr;
+	}
 
 }
+
