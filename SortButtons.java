@@ -70,7 +70,7 @@ public class SortButtons extends JPanel implements ActionListener{
 		}
 		
 		if(ae.getSource()==sortBut[6]){
-			window.setList(Sort.sortISBN(window.getList()).toArray(new Book[window.getSize()]));
+			window.setList(Sort.sortGrade(window.getList()).toArray(new Book[window.getSize()]));
 		}
 	}
 
