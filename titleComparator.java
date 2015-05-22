@@ -1,5 +1,5 @@
 import java.util.Comparator;
-public class titleCompare implements Comparator<Book> {
+public class titleComparator implements Comparator<Book> {
 
 	@Override
 	public int compare(Book arg0, Book arg1) {
