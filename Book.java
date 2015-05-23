@@ -54,6 +54,10 @@ public class Book {
 		return missing;
 	}
 	
+	public void addOrder(BookOrder b){
+		orders.add(b);
+	}
+	
 	private String toLength(String a, int l,char pad){
 		if(a.length()>=l){
 			return a.substring(0,l);
@@ -69,8 +73,8 @@ public class Book {
 	public String toString(){
 		String r=" "+toLength(title,25,' ')+sep;
 		r+=""+toLength(""+total,3,' ')+""+ sep;
-		r+=""+toLength(""+storageRoom.room,3,' ')+""+ sep;
-		r+=""+toLength(""+total,4,' ')+""+ sep;
+		r+=""+toLength(""+storageRoom.getRoom(),3,' ')+""+ sep;
+		r+=""+toLength(""+storageRoom.getNum(),4,' ')+""+ sep;
 		r+=""+toLength(""+(int)price+"."+toLength(""+(int)(price*100%100),2,'0'),6,' ')+""+sep;
 		r+=toLength(isbn,20,' ')+sep;
 		if(!grade.equals(g.AP)){

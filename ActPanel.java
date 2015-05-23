@@ -61,8 +61,12 @@ public class ActPanel extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource()==del){
-			if(JOptionPane.YES_OPTION==JOptionPane.showConfirmDialog(wind, "Are you sure you want to delete " + wind.getSelection().getTitle()+"?")){
-				wind.removeListIndex(wind.getSelectionIndex());
+			try{
+				if(JOptionPane.YES_OPTION==JOptionPane.showConfirmDialog(wind, "Are you sure you want to delete " + wind.getSelection().getTitle()+"?")){
+					wind.removeListIndex(wind.getSelectionIndex());
+				}
+			}catch(Exception e1){
+				JOptionPane.showMessageDialog(wind,"Please select a book.");
 			}
 			
 		}else if(e.getSource()==add){
@@ -136,8 +140,82 @@ public class ActPanel extends JPanel implements ActionListener{
 				}
 			}		
 			wind.addBook(new Book(title,new BookOrder(room,num,""),num,price,ISBN,grd,0));
+		}else if(e.getSource()==chk){
+			int rm=0;
+			int num=0;
+			String teach="";
+			boolean go=true;
+			while(go)
+			{				
+				try{
+					wind.getSelection();
+						
+					String str=JOptionPane.showInputDialog("Please enter the room number.");
+					if(str==null){
+						return;
+					}else{
+						rm=Integer.parseInt(str);
+					}
+					go=false;
+					
+				}catch(ArrayIndexOutOfBoundsException e1){
+					JOptionPane.showMessageDialog(wind,"Please select a book.");
+					return;
+				}catch(Exception e2){
+					JOptionPane.showMessageDialog(wind,"Please enter valid input.");
+					go=true;
+				}
+			}
+			go=true;
+			while(go)
+			{				
+				try{
+						
+					String str=JOptionPane.showInputDialog("Please enter the number of books being checked out.");
+					if(str==null){
+						return;
+					}else{
+						num=Integer.parseInt(str);
+						if(wind.getSelection().getStore().getNum()>num){
+							go=false;
+						}else{
+							go=true;
+							JOptionPane.showMessageDialog(wind,"There are not enough books in storage\nto fulfill this request.");
+						}
+					}
+					
+					
+				}catch(ArrayIndexOutOfBoundsException e1){
+					JOptionPane.showMessageDialog(wind,"Please select a book.");
+					return;
+				}catch(Exception e2){
+					JOptionPane.showMessageDialog(wind,"Please enter valid input.");
+					go=true;
+				}
+			}
+			go=true;
+			while(go)
+			{				
+				try{
+						
+					teach=JOptionPane.showInputDialog("Please enter the Teacher");
+					if(teach==null){
+						return;
+					}
+					go=false;
+					
+				}catch(ArrayIndexOutOfBoundsException e1){
+					JOptionPane.showMessageDialog(wind,"Please select a book.");
+					return;
+				}catch(Exception e2){
+					JOptionPane.showMessageDialog(wind,"Please enter valid input.");
+					go=true;
+				}
+			}
+			wind.getSelection().addOrder(new BookOrder(rm,num,teach));
+			wind.getSelection().getStore().setNum(wind.getSelection().getStore().getNum()-num);;
 		}
-		
+		wind.refreshOrder();
 	}
 
 }

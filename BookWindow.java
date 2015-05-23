@@ -34,7 +34,7 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 	public BookWindow(){
 		super();
 		this.setTitle("Books");
-		this.setSize(1000,700);
+		this.setSize(1500,700);
 		this.setResizable(false);
 		this.setLocation(10, 10);
 		JLabel h = new JLabel("Hello");
@@ -106,8 +106,15 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 
 	@Override
 	public void valueChanged(ListSelectionEvent ls) {
-		Book chosen = (Book)bookMod.getElementAt(ls.getFirstIndex());
+		refreshOrder();
+	}
+	
+	public void refreshOrder(){
+		ord.setList(new BookOrder[0]);
+		Book chosen = this.getSelection();
 		ord.setList(chosen.getOrders().toArray(new BookOrder[chosen.getOrders().size()]));
+		this.setList(this.getList().toArray(new Book[this.getListSize()]));
+		this.repaint();
 	}
 	
 	public void setList(Book[] b){

@@ -66,7 +66,7 @@ public class OrderDisplay extends JPanel implements ActionListener {
 			}
 			while(ordMod.getSize()>b.length){
 				ordMod.remove(ordMod.getSize()-1);
-				arr.remove(ordMod.getSize()-1);
+				arr.remove(ordMod.getSize());
 			}
 		}else{
 			int i=0;
@@ -79,6 +79,7 @@ public class OrderDisplay extends JPanel implements ActionListener {
 				arr.add(i,b[i]);
 			}
 		}
+		this.repaint();
 	}
 	@Override
 	public void actionPerformed(ActionEvent ae) {
