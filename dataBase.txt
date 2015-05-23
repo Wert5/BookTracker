@@ -191,4 +191,8 @@ Prose Reader	ELEVEN	5	60	60	19.0	none	0
 Pygmalion (Penguin) - white	TEN	24	50	50	6.0	01-4045022-x	0
 Pygmalion (Penguin) - black	TEN	24	30	30	6.0	0-141-43950-5	0
 "Raisin in the Sun, A (Anchor - SC - black/white 2008)"	NINE	12	152	152	5.0	0-679-75533-3	0
+<<<<<<< HEAD
 "Raisin in the Sun, A (ML - Literature Connections - HC - blue/purple 2000)"	NINE	12	138	138	27.0	0-395-77552-3	0
+=======
+"Raisin in the Sun, A (ML - Literature Connections - HC - blue/purple 2000)"	NINE	12	138	138	27.0	0-395-77552-3	0
+>>>>>>> origin/master
