@@ -73,6 +73,7 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 	}
 	
 	public void initList(Book[] b){
+		arr=new ArrayList<Book>();
 		GridBagConstraints c=new GridBagConstraints();
 		c.gridy=2;
 		c.gridwidth=6;

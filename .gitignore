@@ -18,3 +18,8 @@
 /priceComparator.class
 /roomComparator.class
 /teacherComparator.class
+/availableCopiesComparatorBookOrder.class
+/gradeComparator.class
+/roomComparatorBook.class
+/roomComparatorBookOrder.class
+/titleComparator.class
