@@ -30,6 +30,7 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 	private BookData bd;
 	private OrderDisplay ord;
 	private ArrayList<Book> arr;
+	private final String save="dataBase.txt";
 	
 	public BookWindow(){
 		super();
@@ -65,11 +66,8 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 		this.add(sort,c);
 		c.gridy=2;
 		bd=new BookData();
-		//Book[] test = new Book[50];//For Testing only
-		//for(int i=0;i<test.length;i++){
-			//test[i]=new Book("abbbbMMMmmm",new BookOrder(100,100,""),100,123.6,"a643524523542354235423646sadgsadgdgfad",Book.g.AP);
-		//}
-		initList(bd.getOrig().toArray(new Book[bd.getOrig().size()]));
+		ArrayList<Book> dat= bd.loadData(save);
+		initList(dat.toArray(new Book[dat.size()]));
 	}
 	
 	public void initList(Book[] b){
@@ -139,6 +137,7 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 				arr.add(i,b[i]);
 			}
 		}
+		//bd.saveData(save,arr);
 	}
 	
 	public int getSelectionIndex(){
