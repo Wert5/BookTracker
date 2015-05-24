@@ -138,6 +138,7 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 			}
 		}
 		bd.saveData(save,arr);
+		bd.saveData(save,arr);
 	}
 	
 	public int getSelectionIndex(){

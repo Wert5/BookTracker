@@ -227,6 +227,7 @@ public class BookData {
 			BookOrder tempH;
 			ArrayList<BookOrder> arrayRoom;
 			int total, room,num;
+			FileWriter fw = new FileWriter(fileName); //the true will append the new data
             for (Book b:books){
             	title=b.getTitle();
             	total=b.getStore().getNum();
@@ -238,11 +239,12 @@ public class BookData {
             	num=b.getStore().getNum();
             	missing=b.getMissing();
             	add2File=title+"\t"+grade+"\t"+room+"\t"+total+"\t"+num+"\t"+price+"\t"+isbn+"\t"+missing;
-            	//System.out.println(add2File);
-        	    FileWriter fw = new FileWriter(fileName,true); //the true will append the new data
+            	System.out.println(add2File);
+        	    
         	    fw.write("\n"+add2File);//appends the string to the file
-        	    fw.close();
+        	    
         	}
+            fw.close();
 		}catch(IOException ioe)
     	{
     	    System.err.println("IOException: " + ioe.getMessage());
