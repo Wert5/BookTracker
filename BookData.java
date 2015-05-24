@@ -62,8 +62,12 @@ public class BookData {
 	                    	isbn=parts[5];
 	                    }
 	                    if(parts[4].length()!=0&&parts[4].charAt(0)=='$'){
-	                    	System.out.println(parts[4]);
-	                    	price=Double.parseDouble(parts[4].substring(1,parts[4].length()));
+	                    	if(parts[4]=="$9.00)\""){
+	                    		price=9;
+	                    		System.out.println("found");
+	                    	}else{
+	                    		price=Double.parseDouble(parts[4].substring(1,parts[4].length()));
+	                    	}
 	                    }else{
 	                    	price=0;
 	                    }
@@ -93,11 +97,12 @@ public class BookData {
 						System.out.println(line);
 					}
 		            line = bufferedReader.readLine();
-		            saveData("dataBase.txt",orig);
+		            
             }
 	            
             // Always close files.
             bufferedReader.close();
+            saveData("dataBase.txt",orig);
         }
 		
         catch(FileNotFoundException ex) {
@@ -135,7 +140,6 @@ public class BookData {
 			while(line != null) {
 					if(line.charAt(0)!='/'){
 	                    parts=line.split("\t");
-	                    System.out.println(Arrays.toString(parts));
 	                    if(parts.length<1){
 	                    	break;
 	                    }

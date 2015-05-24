@@ -137,7 +137,7 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 				arr.add(i,b[i]);
 			}
 		}
-		//bd.saveData(save,arr);
+		bd.saveData(save,arr);
 	}
 	
 	public int getSelectionIndex(){
@@ -154,6 +154,7 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 	
 	public void addBook(Book b){
 		bookMod.addElement(b);
+		arr.add(b);
 	}
 	public ArrayList<Book> getList(){
 		return arr;

@@ -215,7 +215,7 @@ public class ActPanel extends JPanel implements ActionListener{
 			wind.getSelection().addOrder(new BookOrder(rm,num,teach));
 			wind.getSelection().getStore().setNum(wind.getSelection().getStore().getNum()-num);;
 		}
-		wind.refreshOrder();
+		//wind.refreshOrder();
 	}
 
 }
