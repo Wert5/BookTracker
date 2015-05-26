@@ -235,7 +235,8 @@ public class ActPanel extends JPanel implements ActionListener{
 							ord.getSelection().setNum(ord.getSelection().getNum()-num);
 							wind.getSelection().getStore().setNum(num+wind.getSelection().getStore().getNum());
 							if(ord.getSelection().getNum()==0){
-								ord.getMod().remove(ord.getSelectionInd());
+								ord.removeOrd();
+								System.out.println("removing");
 							}
 						}else{
 							go=true;
