@@ -40,10 +40,13 @@ public class OrderDisplay extends JPanel implements ActionListener {
 		((FlowLayout)buts.getLayout()).setAlignment(FlowLayout.LEFT);
 		rm=new JButton("Room");
 		rm.setMargin(new Insets(0,0,0,0));
+		rm.addActionListener(this);
 		num=new JButton("Num");
 		num.setMargin(new Insets(0,0,0,0));
+		num.addActionListener(this);
 		teach=new JButton("Teach");
 		teach.setMargin(new Insets(0,30,0,30));
+		teach.addActionListener(this);
 		buts.add(rm);
 		buts.add(num);
 		buts.add(teach);
@@ -92,12 +95,17 @@ public class OrderDisplay extends JPanel implements ActionListener {
 		
 	}
 	
-	public DefaultListModel(){
-		
+	public void removeOrd(){
+		BookOrder ind=getSelection();
+		System.out.println(ind);
+		ordMod.removeElement(ind);
+		arr.remove(ind);
+		setList(arr.toArray(new BookOrder[arr.size()]));
 	}
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 		// TODO Auto-generated method stub
+		System.out.println("Button"+ae.getSource());
 		if(ae.getSource()==rm){
 			setList(Sort.sortRoomBO(arr).toArray(new BookOrder[arr.size()]));
 		}else if(ae.getSource()==num){
