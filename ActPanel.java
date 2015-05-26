@@ -42,7 +42,9 @@ public class ActPanel extends JPanel implements ActionListener{
 		super(layout, isDoubleBuffered);
 		// TODO Auto-generated constructor stub
 	}
-	
+	/**
+	 * This method sets up the display by initializing the buttons
+	 */
 	private void init(){
 		add=new JButton("Add New Book");
 		this.add(add);
@@ -61,7 +63,9 @@ public class ActPanel extends JPanel implements ActionListener{
 		srch.addActionListener(this);
 		
 	}
-
+	/**
+	 * This method handles the buttons by bringing up windows to get information and calling the necessary methods.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub

@@ -1,4 +1,3 @@
-//add new gui
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -20,7 +19,9 @@ import javax.swing.event.ListSelectionListener;
 
 public class BookWindow extends JFrame implements ListSelectionListener {
 	/**
-	 * 
+	 * This class represents the main window of our application
+	 * It includes multiple panels.
+	 * The window directly contains the main book list.
 	 */
 	private static final long serialVersionUID = 1L;
 	private SortButtons sort=new SortButtons(this);
@@ -31,7 +32,9 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 	private OrderDisplay ord;
 	private ArrayList<Book> arr;
 	private final String save="dataBase.txt";
-	
+	/**
+	 *The constructor initializes the window by setting the size, making it visible and setting it up to close
+	 */
 	public BookWindow(){
 		super();
 		this.setTitle("Books");
@@ -49,7 +52,9 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 		  	} //windowClosing
 		} );
 	}
-	
+	/**
+	 * This method sets up the GUI by adding each custom panel in the correct position. It also loads the data and initializes the list.
+	 */
 	public void addComponents(){
 		GridBagConstraints c=new GridBagConstraints();
 		c.gridx=1;
@@ -70,7 +75,9 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 		initList(dat.toArray(new Book[dat.size()]));
 		ap.setord(ord);
 	}
-	
+	/**
+	 * This method sets up the list by creating a ListModel and loading it with the books. It also sets up the list display.
+	 */
 	public void initList(Book[] b){
 		arr=new ArrayList<Book>();
 		GridBagConstraints c=new GridBagConstraints();
@@ -107,7 +114,9 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 	public void valueChanged(ListSelectionEvent ls) {
 		refreshOrder();
 	}
-	
+	/**
+	 * This method refreshes the bookOrder list for each book.
+	 */
 	public void refreshOrder(){
 		ord.setList(new BookOrder[0]);
 		Book chosen = this.getSelection();
@@ -115,7 +124,10 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 		this.setList(this.getList().toArray(new Book[this.getListSize()]));
 		this.repaint();
 	}
-	
+	/**
+	 * This method changes the list when the books are sorted.
+	 * @param b
+	 */
 	public void setList(Book[] b){
 		if(b.length<=bookMod.getSize()){
 			int i=0;

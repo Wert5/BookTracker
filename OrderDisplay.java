@@ -97,15 +97,16 @@ public class OrderDisplay extends JPanel implements ActionListener {
 	
 	public void removeOrd(){
 		BookOrder ind=getSelection();
+		System.out.println(ordMod);
 		System.out.println(ind);
 		ordMod.removeElement(ind);
 		arr.remove(ind);
 		setList(arr.toArray(new BookOrder[arr.size()]));
+		System.out.println(ordMod);
 	}
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 		// TODO Auto-generated method stub
-		System.out.println("Button"+ae.getSource());
 		if(ae.getSource()==rm){
 			setList(Sort.sortRoomBO(arr).toArray(new BookOrder[arr.size()]));
 		}else if(ae.getSource()==num){

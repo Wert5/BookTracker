@@ -239,7 +239,6 @@ public class BookData {
             	num=b.getStore().getNum();
             	missing=b.getMissing();
             	add2File=title+"\t"+grade+"\t"+room+"\t"+total+"\t"+num+"\t"+price+"\t"+isbn+"\t"+missing;
-            	System.out.println(add2File);
         	    
         	    fw.write("\n"+add2File);//appends the string to the file
         	    
