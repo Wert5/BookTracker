@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 
 public class ActPanel extends JPanel implements ActionListener{
 	private BookWindow wind;
+	private OrderDisplay ord;
 	private JButton del;
 	private JButton add;
 	private JButton ret;
@@ -21,6 +22,10 @@ public class ActPanel extends JPanel implements ActionListener{
 		super();
 		wind=bw;
 		init();
+	}
+	
+	public void setord(OrderDisplay o){
+		ord=o;
 	}
 
 	public ActPanel(LayoutManager layout) {
@@ -214,10 +219,49 @@ public class ActPanel extends JPanel implements ActionListener{
 			}
 			wind.getSelection().addOrder(new BookOrder(rm,num,teach));
 			wind.getSelection().getStore().setNum(wind.getSelection().getStore().getNum()-num);;
+		}else if(e.getSource()==ret){
+			boolean go=true;
+			int num;
+			while(go)
+			{				
+				try{
+					String str=JOptionPane.showInputDialog("Please enter the number of books being returned.");
+					if(str==null){
+						return;
+					}else if(ord.getSelection()!=null){
+						num=Integer.parseInt(str);
+						if(ord.getSelection().getNum()>=num){
+							go=false;
+							ord.getSelection().setNum(ord.getSelection().getNum()-num);
+							wind.getSelection().getStore().setNum(num+wind.getSelection().getStore().getNum());
+							if(ord.getSelection().getNum()==0){
+								ord.getMod().remove(ord.getSelectionInd());
+							}
+						}else{
+							go=true;
+							JOptionPane.showMessageDialog(wind,"There are not enough books in this order\nto fulfill this request.");
+							
+						}
+					}else{
+						JOptionPane.showMessageDialog(wind,"Please select a book order.");
+					}
+					
+					
+				}catch(ArrayIndexOutOfBoundsException e1){
+					JOptionPane.showMessageDialog(wind,"Please select a book order.");
+					return;
+				}/*catch(Exception e2){
+					JOptionPane.showMessageDialog(wind,"Please enter valid input.");
+					go=true;
+				}*/
+				
+			}
 		}
-		//wind.refreshOrder();
+		
+		wind.refreshOrder();
 	}
 
 }
+
 
 
