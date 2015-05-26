@@ -68,6 +68,7 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 		bd=new BookData();
 		ArrayList<Book> dat= bd.loadData(save);
 		initList(dat.toArray(new Book[dat.size()]));
+		ap.setord(ord);
 	}
 	
 	public void initList(Book[] b){
@@ -166,6 +167,10 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 	}
 
 }
+
+
+
+
 
 
 
