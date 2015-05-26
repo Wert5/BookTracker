@@ -81,6 +81,20 @@ public class OrderDisplay extends JPanel implements ActionListener {
 		}
 		this.repaint();
 	}
+	
+	public BookOrder getSelection(){
+		return (BookOrder)ordMod.getElementAt(ordList.getLeadSelectionIndex());
+		
+	}
+	
+	public int getSelectionInd(){
+		return ordList.getLeadSelectionIndex();
+		
+	}
+	
+	public DefaultListModel(){
+		
+	}
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 		// TODO Auto-generated method stub
@@ -95,4 +109,5 @@ public class OrderDisplay extends JPanel implements ActionListener {
 	}
 
 }
+
 
