@@ -6,6 +6,7 @@ import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -61,6 +62,8 @@ public class OrderDisplay extends JPanel implements ActionListener {
 		this.setVisible(true);
 	}
 	public void setList(BookOrder[] b){
+		System.out.println("ARR b4"+arr);
+		System.out.println("Mod b4"+ordMod);
 		if(b.length<=ordMod.getSize()){
 			int i=0;
 			for(i=0;i<b.length;i++){
@@ -83,6 +86,8 @@ public class OrderDisplay extends JPanel implements ActionListener {
 			}
 		}
 		this.repaint();
+		System.out.println("Ord aft"+ordMod);
+		System.out.println("Arr aft"+arr);
 	}
 	
 	public BookOrder getSelection(){
@@ -97,16 +102,21 @@ public class OrderDisplay extends JPanel implements ActionListener {
 	
 	public void removeOrd(){
 		BookOrder ind=getSelection();
-		System.out.println(ordMod);
 		System.out.println(ind);
 		ordMod.removeElement(ind);
 		arr.remove(ind);
+		//ordMod=new DefaultListModel();
+		System.out.println("Arr"+arr);
 		setList(arr.toArray(new BookOrder[arr.size()]));
-		System.out.println(ordMod);
+		System.out.println("ARR:"+arr);
+		System.out.println("toArr: "+Arrays.toString(arr.toArray(new BookOrder[arr.size()])));
+		System.out.println("Mod: "+ordMod);
+		//ordList.setModel(ordMod);
 	}
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 		// TODO Auto-generated method stub
+		System.out.println("Button"+ae.getSource());
 		if(ae.getSource()==rm){
 			setList(Sort.sortRoomBO(arr).toArray(new BookOrder[arr.size()]));
 		}else if(ae.getSource()==num){
@@ -118,5 +128,3 @@ public class OrderDisplay extends JPanel implements ActionListener {
 	}
 
 }
-
-
