@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+
+
+public class OrderList {
+	public String teacher;
+	public int num=0;
+	public String book;
+	
+	public OrderList(BookOrder bookOrders, String book)
+	{
+		teacher=bookOrders.getTeacher();
+		num=bookOrders.getNum();
+		this.book=book;
+	}
+	
+	public String getTeacher() {
+		return teacher;
+	}
+	
+	public void setTeacher(String teacher) {
+		this.teacher = teacher;
+	}
+	
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+}
