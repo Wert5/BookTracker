@@ -14,6 +14,7 @@ public class BookData {
 	public static final String ORIGINAL="OrigDataBase.txt";
 	public static final String TITLE="TitleData.txt";
 	private static ArrayList<Book> orig = new ArrayList<Book>(1000);
+	private static ArrayList<OrderList> ordersSubmit=new ArrayList<OrderList>(1000);
 	
 	public BookData(){
 		//fix();
@@ -230,7 +231,7 @@ public class BookData {
 			FileWriter fw = new FileWriter(fileName); //the true will append the new data
             for (Book b:books){
             	title=b.getTitle();
-            	total=b.getStore().getNum();
+            	total=b.getTotal();
             	price=b.getPrice();
             	isbn=b.getIsbn();
             	grade=b.getGrade();
@@ -265,11 +266,79 @@ public class BookData {
 		
 	}
 	
+	public void saveOrder(String fileName, OrderList orders){
+		String teacher=orders.getTeacher();
+		int numBooks=orders.getNum();
+		String title=orders.getBook();
+		int roomNum=orders.getRoom();
+		try {
+            // FileReader reads text files in the default encoding.
+            FileWriter fileSaveNew= new FileWriter(fileName);
+            // Always wrap FileReader in BufferedReader.
+            BufferedWriter bufferedSaveNew = new BufferedWriter(fileSaveNew);
+            //turns OrderList object into strings
+            String addFile="";
+            FileWriter fw = new FileWriter(fileName); //the true will append the new data
+            addFile=roomNum+"\t"+numBooks+"\t"+teacher+"\t"+title;
+    	    fw.write("\n"+addFile);//appends the string to the file      	
+    	    fw.close();
+			}
+		catch(IOException ioe)
+		    	{
+		    	    System.err.println("IOException: " + ioe.getMessage());
+		    	}	
+	}
+	
+	public void loadOrder(String fileNa){
+		try {
+            // FileReader reads text files in the default encoding.
+            FileReader fileReader = 
+                new FileReader(fileNa);
+
+            // Always wrap FileReader in BufferedReader.
+            BufferedReader bufferedReader = 
+                new BufferedReader(fileReader);
+            String title,teacherNa;
+            int numberOfB,roomNumb;
+            String line="";
+            String[] parts={" "};
+            while(line != null) {
+				if(line.charAt(0)!='/'){
+                    parts=line.split("\t");
+                    if(parts.length<1){
+                    	break;
+                    }
+                    roomNumb=Integer.parseInt(parts[1]);
+                    numberOfB=Integer.parseInt(parts[0]);
+                    teacherNa=(parts[2]);
+                    title=(parts[3]);
+                    BookOrder tempOrder=new BookOrder(roomNumb,numberOfB,teacherNa);
+                    OrderList orderlists=new OrderList(tempOrder,title);
+                    ordersSubmit.add(orderlists);}
+                    line = bufferedReader.readLine();
+            }
+                    
+		}
+		catch(FileNotFoundException ex) {
+			System.out.println(
+                "Unable to open file '" + 
+                ORIGINAL + "'"+ex.getMessage());                
+        }
+		catch(IOException ex) {
+	            System.out.println(
+	                "Error reading file '" 
+	                + fileNa + "'"+ex.getMessage());                   
+	            // Or we could just do this: 
+	            // ex.printStackTrace();
+	    }
+	}
 	public void findDataISBN(){
 		
 	}
 	
 	public void findDataAuthor(){
-		
 	}
-}
+	
+	}
+		
+	
