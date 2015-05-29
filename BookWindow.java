@@ -123,7 +123,6 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 		ord.setList(new Book("",null,0,0,null,Book.g.AP,0));
 		Book chosen = this.getSelection();
 		BookData.loadOrder(ordFile);
-		System.out.println("Find title"+BookData.findDataTitle(chosen.getTitle()));
 		chosen.setOrders(BookData.findDataTitle(chosen.getTitle()));
 		ord.setList(chosen);
 		this.setList(this.getList().toArray(new Book[this.getListSize()]));

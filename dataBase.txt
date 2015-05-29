@@ -1,6 +1,6 @@
 
-"American Childhood, An(Harper - SC - 2010)"	AP	24	129	38	13.0	0-06-091518-6	0
-"Awakening, The (Avon - SC - 1997/2000)"	ELEVEN	12	89	89	6.0	0-380-00245-0	0
+"American Childhood, An(Harper - SC - 2010)"	AP	24	129	129	13.0	0-06-091518-6	0
+"Awakening, The (Avon - SC - 1997/2000)"	ELEVEN	12	89	76	6.0	0-380-00245-0	0
 "Bless Me, Ultima (Warner - SC - 2001)"	TEN	5	88	88	5.0	0-446-60025-3	0
 "Canterbury Tales, The (Bantam - SC - 03/07)"	TWELVE	24	90	90	5.0	0-553-21082-3	0
 "Canterbury Tales, The (ML - Literature Connections - HC - 1999)"	TWELVE	24	69	69	15.0	0-395-89328-3	0
@@ -15,7 +15,7 @@
 "Crucible, The Penguin - SC - black)"	ELEVEN	12	44	44	10.0	0-14-243733-6	0
 "Cry, the Beloved Country (Scribner - SC)"	NINE	12	122	122	10.0	0-684-81894-9	0
 "Doll’s House, A (found in Four Great Plays by Henrik Ibsen) (Bantam)"	ELEVEN	24	86	86	5.0	0-553-21280-X	0
-"Emma (Brown, SC)"	NINE	12	30	30	13.0	9781-493663644	0
+"Emma (Brown, SC)"	NINE	12	30	18	13.0	9781-493663644	0
 "Farewell to Arms, A (Scribner - SC - 2004)"	NINE	12	209	209	10.0	0-684-80146-9	0
 "Farming of Bones, The (Penguin - SC -  2004)"	TWELVE	24	82	82	15.0	0-14-028049-9	0
 "Glass Menagerie, The (New Direction - SC - black 2002/03)"	ELEVEN	12	98	98	9.0	0-8112-1404-4	0
@@ -182,19 +182,6 @@ Narrative of the Life of Frederick Douglass (Signet - SC - 2010)	AP	24	117	117	4
 Nectar In A Sieve (Signet - SC - yellow/orange 2002)	NINE	5	90	90	6.0	0-451-52823-9	0
 Night (Bantam - HC - white 1994-2001)	TEN	24	61	61	18.0	0-8124-1754-2	0
 Night (VHPS  - SC  - 2007)	TEN	24	320	320	8.0	0-374-50001-0	0
-Nineteen Eighty-Four (1984)  	TEN	24	330	330	7.0	0-451-52493-4	0
-Nineteen Eighty-Four (1984)  	TEN	24	330	330	7.0	0-451-52493-4	0
-Nineteen Eighty-Four (1984)  	TEN	24	330	330	7.0	0-451-52493-4	0
-Nineteen Eighty-Four (1984)  	TEN	24	330	330	7.0	0-451-52493-4	0
-Nineteen Eighty-Four (1984)  	TEN	24	330	330	7.0	0-451-52493-4	0
-Nineteen Eighty-Four (1984)  	TEN	24	330	330	7.0	0-451-52493-4	0
-Nineteen Eighty-Four (1984)  	TEN	24	330	330	7.0	0-451-52493-4	0
-Nineteen Eighty-Four (1984)  	TEN	24	330	330	7.0	0-451-52493-4	0
-Nineteen Eighty-Four (1984)  	TEN	24	330	330	7.0	0-451-52493-4	0
-Nineteen Eighty-Four (1984)  	TEN	24	330	330	7.0	0-451-52493-4	0
-Nineteen Eighty-Four (1984)  	TEN	24	330	330	7.0	0-451-52493-4	0
-Nineteen Eighty-Four (1984)  	TEN	24	330	330	7.0	0-451-52493-4	0
-Nineteen Eighty-Four (1984)  	TEN	24	330	330	7.0	0-451-52493-4	0
 Nineteen Eighty-Four (1984)  	TEN	24	330	330	7.0	0-451-52493-4	0
 Norton Reader	TEN	5	41	41	0.0	0-393-97384-0	0
 O Pioneers (B&N Classics - SC)	TEN	24	4	4	8.0	1-59308-205-3	0

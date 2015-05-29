@@ -43,5 +43,10 @@ public class OrderList {
 	public int getRoom(){
 		return room;
 	}
+	
+	public boolean equals(Object o){
+		OrderList ol=(OrderList)o;
+		return this.book.equals(ol.getBook()) && this.num==ol.num && this.room==ol.room && this.teacher.equals(ol.getTeacher());
+	}
 
 }

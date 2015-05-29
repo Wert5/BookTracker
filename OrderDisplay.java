@@ -66,7 +66,13 @@ public class OrderDisplay extends JPanel implements ActionListener {
 	}
 	public void setList(Book k){
 		bk=k;
-		BookOrder[] b=(bk.getOrders().toArray(new BookOrder[bk.getOrders().size()]));
+		ArrayList<BookOrder> a=;
+		for(OrderList ol:BookData.ordersSubmit){
+			if(ol.getBook().equals(k.getTitle())){
+				
+			}
+		}
+		BookOrder[] b=(a.toArray(new BookOrder[a.size()]));
 		if(b.length<=ordMod.getSize()){
 			int i=0;
 			for(i=0;i<b.length;i++){
@@ -89,8 +95,8 @@ public class OrderDisplay extends JPanel implements ActionListener {
 			}
 		}
 		this.repaint();
-		for(BookOrder a:arr){
-			BookData.saveOrder(ordFile,new OrderList(a,k.getTitle()));
+		for(BookOrder ao:arr){
+			BookData.saveOrder(ordFile,new OrderList(ao,k.getTitle()));
 		}
 	}
 	
@@ -106,15 +112,13 @@ public class OrderDisplay extends JPanel implements ActionListener {
 	
 	public void removeOrd(){
 		BookOrder ind=getSelection();
-		System.out.println(ind);
 		ordMod.removeElement(ind);
 		arr.remove(ind);
+		BookData.ordersSubmit.remove(ind);
 		setList(bk);
 	}
 	@Override
 	public void actionPerformed(ActionEvent ae) {
-		// TODO Auto-generated method stub
-		System.out.println("Button"+ae.getSource());
 		if(ae.getSource()==rm){
 			bk.setOrders(Sort.sortRoomBO(bk.getOrders()));
 			setList(bk);

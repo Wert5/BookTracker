@@ -237,11 +237,11 @@ public class ActPanel extends JPanel implements ActionListener{
 						num=Integer.parseInt(str);
 						if(ord.getSelection().getNum()>=num){
 							go=false;
+							System.out.println(BookData.ordersSubmit.indexOf(ord.getSelection()));
 							ord.getSelection().setNum(ord.getSelection().getNum()-num);
 							wind.getSelection().getStore().setNum(num+wind.getSelection().getStore().getNum());
 							if(ord.getSelection().getNum()==0){
 								ord.removeOrd();
-								System.out.println("removing");
 							}
 						}else{
 							go=true;

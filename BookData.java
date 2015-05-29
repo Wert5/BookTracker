@@ -14,7 +14,7 @@ public class BookData {
 	public static final String ORIGINAL="OrigDataBase.txt";
 	public static final String TITLE="TitleData.txt";
 	private static ArrayList<Book> orig = new ArrayList<Book>(1000);
-	private static ArrayList<OrderList> ordersSubmit=new ArrayList<OrderList>(1000);
+	public static ArrayList<OrderList> ordersSubmit=new ArrayList<OrderList>(1000);
 	
 	public BookData(){
 		//fix();
@@ -269,26 +269,35 @@ public class BookData {
 	}
 	
 	public static void saveOrder(String fileName, OrderList orders){
-		String teacher=orders.getTeacher();
-		int numBooks=orders.getNum();
-		String title=orders.getBook();
-		int roomNum=orders.getRoom();
-		try {
-            // FileReader reads text files in the default encoding.
-            FileWriter fileSaveNew= new FileWriter(fileName);
-            // Always wrap FileReader in BufferedReader.
-            BufferedWriter bufferedSaveNew = new BufferedWriter(fileSaveNew);
-            //turns OrderList object into strings
-            String addFile="";
-            FileWriter fw = new FileWriter(fileName); //the true will append the new data
-            addFile=roomNum+"\t"+numBooks+"\t"+teacher+"\t"+title;
-    	    fw.write(addFile+"\n");//appends the string to the file      	
-    	    fw.close();
+		loadOrder(fileName);
+		for(OrderList o:ordersSubmit){
+			if(o.equals(orders)){
+				return;
 			}
+		}
+		ordersSubmit.add(orders);
+	
+		try {
+			FileWriter fw = new FileWriter(fileName); //the true will append the new data
+			for(OrderList o:ordersSubmit){
+				String teacher=o.getTeacher();
+				int numBooks=o.getNum();
+				String title=o.getBook();
+				int roomNum=o.getRoom();
+	            String addFile="";
+	            
+	            addFile=roomNum+"\t"+numBooks+"\t"+teacher+"\t"+title;
+	            if(numBooks!=0){
+	            	fw.write(addFile+"\n");//appends the string to the file    
+	            }
+			}
+    	    fw.close();
+		}
 		catch(IOException ioe)
-		    	{
-		    	    System.err.println("IOException: " + ioe.getMessage());
-		    	}	
+    	{
+    	    System.err.println("IOException: " + ioe.getMessage());
+    	}
+		
 	}
 	
 	public static void loadOrder(String fileNa){
