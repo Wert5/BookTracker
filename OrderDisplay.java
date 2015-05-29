@@ -29,10 +29,13 @@ public class OrderDisplay extends JPanel implements ActionListener {
 	private JButton num;
 	private JButton teach;
 	private ArrayList<BookOrder> arr;
+	private Book bk;
+	public static final String ordFile="orders.txt";
 
 	public OrderDisplay() {
 		// TODO Auto-generated constructor stub
 		super();
+		bk=new Book("",null,0,0,null,Book.g.AP,0);
 		init();
 	}
 	private void init(){
@@ -61,9 +64,9 @@ public class OrderDisplay extends JPanel implements ActionListener {
 		this.setMinimumSize(new Dimension(200,500));
 		this.setVisible(true);
 	}
-	public void setList(BookOrder[] b){
-		System.out.println("ARR b4"+arr);
-		System.out.println("Mod b4"+ordMod);
+	public void setList(Book k){
+		bk=k;
+		BookOrder[] b=(bk.getOrders().toArray(new BookOrder[bk.getOrders().size()]));
 		if(b.length<=ordMod.getSize()){
 			int i=0;
 			for(i=0;i<b.length;i++){
@@ -86,8 +89,9 @@ public class OrderDisplay extends JPanel implements ActionListener {
 			}
 		}
 		this.repaint();
-		System.out.println("Ord aft"+ordMod);
-		System.out.println("Arr aft"+arr);
+		for(BookOrder a:arr){
+			BookData.saveOrder(ordFile,new OrderList(a,k.getTitle()));
+		}
 	}
 	
 	public BookOrder getSelection(){
@@ -105,24 +109,21 @@ public class OrderDisplay extends JPanel implements ActionListener {
 		System.out.println(ind);
 		ordMod.removeElement(ind);
 		arr.remove(ind);
-		//ordMod=new DefaultListModel();
-		System.out.println("Arr"+arr);
-		setList(arr.toArray(new BookOrder[arr.size()]));
-		System.out.println("ARR:"+arr);
-		System.out.println("toArr: "+Arrays.toString(arr.toArray(new BookOrder[arr.size()])));
-		System.out.println("Mod: "+ordMod);
-		//ordList.setModel(ordMod);
+		setList(bk);
 	}
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 		// TODO Auto-generated method stub
 		System.out.println("Button"+ae.getSource());
 		if(ae.getSource()==rm){
-			setList(Sort.sortRoomBO(arr).toArray(new BookOrder[arr.size()]));
+			bk.setOrders(Sort.sortRoomBO(bk.getOrders()));
+			setList(bk);
 		}else if(ae.getSource()==num){
-			setList(Sort.sortNumBO(arr).toArray(new BookOrder[arr.size()]));
+			bk.setOrders(Sort.sortNumBO(bk.getOrders()));
+			setList(bk);
 		}else{
-			setList(Sort.sortTeacher(arr).toArray(new BookOrder[arr.size()]));
+			bk.setOrders(Sort.sortTeacher(bk.getOrders()));
+			setList(bk);
 		}
 		
 	}
