@@ -1,5 +1,5 @@
 
-"American Childhood, An(Harper - SC - 2010)"	AP	24	129	129	13.0	0-06-091518-6	0
+"American Childhood, An(Harper - SC - 2010)"	AP	24	129	38	13.0	0-06-091518-6	0
 "Awakening, The (Avon - SC - 1997/2000)"	ELEVEN	12	89	89	6.0	0-380-00245-0	0
 "Bless Me, Ultima (Warner - SC - 2001)"	TEN	5	88	88	5.0	0-446-60025-3	0
 "Canterbury Tales, The (Bantam - SC - 03/07)"	TWELVE	24	90	90	5.0	0-553-21082-3	0

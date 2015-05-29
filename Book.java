@@ -67,6 +67,10 @@ public class Book {
 		}
 		return a;
 	}
+	
+	public void saveOrds(String file){
+		
+	}
 	/**
 	 * Returns a String formatted for the list GUI.
 	 */

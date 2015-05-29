@@ -17,6 +17,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+
 public class BookWindow extends JFrame implements ListSelectionListener {
 	/**
 	 * This class represents the main window of our application
@@ -32,6 +33,7 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 	private OrderDisplay ord;
 	private ArrayList<Book> arr;
 	private final String save="dataBase.txt";
+	public static final String ordFile="orders.txt";
 	/**
 	 *The constructor initializes the window by setting the size, making it visible and setting it up to close
 	 */
@@ -118,9 +120,12 @@ public class BookWindow extends JFrame implements ListSelectionListener {
 	 * This method refreshes the bookOrder list for each book.
 	 */
 	public void refreshOrder(){
-		ord.setList(new BookOrder[0]);
+		ord.setList(new Book("",null,0,0,null,Book.g.AP,0));
 		Book chosen = this.getSelection();
-		ord.setList(chosen.getOrders().toArray(new BookOrder[chosen.getOrders().size()]));
+		BookData.loadOrder(ordFile);
+		System.out.println("Find title"+BookData.findDataTitle(chosen.getTitle()));
+		chosen.setOrders(BookData.findDataTitle(chosen.getTitle()));
+		ord.setList(chosen);
 		this.setList(this.getList().toArray(new Book[this.getListSize()]));
 		this.repaint();
 	}

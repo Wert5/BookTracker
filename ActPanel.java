@@ -222,6 +222,7 @@ public class ActPanel extends JPanel implements ActionListener{
 				}
 			}
 			wind.getSelection().addOrder(new BookOrder(rm,num,teach));
+			BookData.saveOrder(wind.ordFile, new OrderList(new BookOrder(rm,num,teach),wind.getSelection().getTitle()));
 			wind.getSelection().getStore().setNum(wind.getSelection().getStore().getNum()-num);;
 		}else if(e.getSource()==ret){
 			boolean go=true;
