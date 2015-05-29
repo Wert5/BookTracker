@@ -6,6 +6,7 @@ import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -105,16 +106,15 @@ public class OrderDisplay extends JPanel implements ActionListener {
 	
 	public void removeOrd(){
 		BookOrder ind=getSelection();
-		System.out.println(ordMod);
 		System.out.println(ind);
 		ordMod.removeElement(ind);
 		arr.remove(ind);
 		setList(bk);
-		System.out.println(ordMod);
 	}
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 		// TODO Auto-generated method stub
+		System.out.println("Button"+ae.getSource());
 		if(ae.getSource()==rm){
 			bk.setOrders(Sort.sortRoomBO(bk.getOrders()));
 			setList(bk);
@@ -129,5 +129,3 @@ public class OrderDisplay extends JPanel implements ActionListener {
 	}
 
 }
-
-
