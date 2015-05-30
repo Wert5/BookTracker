@@ -1,3 +1,4 @@
+import java.awt.Dimension;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -62,9 +63,10 @@ public class ActPanel extends JPanel implements ActionListener{
 		chk=new JButton("Check Out Book");
 		this.add(chk);
 		chk.addActionListener(this);
-		srch=new JTextField();
+		/*srch=new JTextField();
 		this.add(srch);
-		srch.addActionListener(this);
+		srch.setMinimumSize(new Dimension(100,10));
+		srch.addActionListener(this);*/
 		
 	}
 	/**
@@ -269,6 +271,8 @@ public class ActPanel extends JPanel implements ActionListener{
 				}*/
 				
 			}
+		}else{
+			
 		}
 		
 		wind.refreshOrder();
