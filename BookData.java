@@ -412,7 +412,7 @@ public class BookData {
             line = bufferedReader.readLine();
             line = bufferedReader.readLine();
             while(line != null && !line.equals("")) {
-            	System.out.println(line);
+            	//System.out.println(line);
 				//if(line.charAt(0)!='/'){
                     parts=line.split("\t");
                     if(parts.length<1){
