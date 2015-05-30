@@ -18,7 +18,7 @@ import javax.swing.JScrollPane;
 public class OrderDisplay extends JPanel implements ActionListener {
 
 	/**
-	 * 
+	 * This class displays a list of the orders for a certain book
 	 */
 	private static final long serialVersionUID = 1L;
 	private JList ordList;
@@ -38,6 +38,9 @@ public class OrderDisplay extends JPanel implements ActionListener {
 		bk=new Book("",null,0,0,null,Book.g.AP,0);
 		init();
 	}
+	/**
+	 * Initialize the display
+	 */
 	private void init(){
 		arr=new ArrayList<BookOrder>();
 		buts=new JPanel(new FlowLayout());
@@ -64,6 +67,11 @@ public class OrderDisplay extends JPanel implements ActionListener {
 		this.setMinimumSize(new Dimension(200,500));
 		this.setVisible(true);
 	}
+	
+	/**
+	 * Set the list to display this book's orders
+	 * @param k
+	 */
 	public void setList(Book k){
 		bk=k;
 		ArrayList<BookOrder> a=new ArrayList<BookOrder>();
@@ -109,7 +117,9 @@ public class OrderDisplay extends JPanel implements ActionListener {
 		return ordList.getLeadSelectionIndex();
 		
 	}
-	
+	/**
+	 * This removes an order
+	 */
 	public void removeOrd(){
 		BookOrder ind=getSelection();
 		ordMod.removeElement(ind);
@@ -117,6 +127,9 @@ public class OrderDisplay extends JPanel implements ActionListener {
 		BookData.ordersSubmit.remove(ind);
 		setList(bk);
 	}
+	/**
+	 * This responds to buttons by sorting the orders
+	 */
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 		if(ae.getSource()==rm){

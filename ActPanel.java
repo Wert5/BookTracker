@@ -9,6 +9,9 @@ import javax.swing.JTextField;
 
 
 public class ActPanel extends JPanel implements ActionListener{
+	/**
+	 * This class represents the buttons to take actions
+	 */
 	private BookWindow wind;
 	private OrderDisplay ord;
 	private JButton del;
@@ -240,10 +243,12 @@ public class ActPanel extends JPanel implements ActionListener{
 							go=false;
 							BookOrder or=new BookOrder(ord.getSelection().getRoom(),ord.getSelection().getNum(),ord.getSelection().getTeacher());
 							ord.getSelection().setNum(ord.getSelection().getNum()-num);
-							BookData.changeOrder(ordFile, new OrderList(or,wind.getSelection().getTitle()),new OrderList(ord.getSelection(),wind.getSelection().getTitle()));
 							wind.getSelection().getStore().setNum(num+wind.getSelection().getStore().getNum());
 							if(ord.getSelection().getNum()==0){
 								ord.removeOrd();
+								BookData.zeroOrder(ordFile, new OrderList(or,wind.getSelection().getTitle()));
+							}else{
+								BookData.changeOrder(ordFile, new OrderList(or,wind.getSelection().getTitle()),new OrderList(ord.getSelection(),wind.getSelection().getTitle()));
 							}
 						}else{
 							go=true;

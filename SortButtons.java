@@ -20,7 +20,9 @@ public class SortButtons extends JPanel implements ActionListener{
 		setUp();
 		window=bw;
 	}
-	
+	/**
+	 * This method initializes the panel
+	 */
 	public void setUp(){
 		sortBut=new JButton[7];
 		sortBut[0]=new JButton("Title");
@@ -41,7 +43,9 @@ public class SortButtons extends JPanel implements ActionListener{
 		for(JButton j:sortBut)
 			j.addActionListener(this);
 	}
-
+	/**
+	 * This method responds to the buttons by sorting the list
+	 */
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 		// TODO Auto-generated method stub

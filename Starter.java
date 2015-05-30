@@ -5,7 +5,6 @@ public class Starter {
 	/**
 	 * @param args
 	 * Main method to start window
-	 * currently used for testing
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

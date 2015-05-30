@@ -282,6 +282,38 @@ public class BookData {
 		return arr;
 	}
 	/**
+	 * This method removes an order once all books are returned
+	 * @param fileName
+	 * @param orders
+	 */
+	public static void zeroOrder(String fileName, OrderList orders){
+		loadOrder(fileName);
+		
+		try {
+			FileWriter fw = new FileWriter(fileName); //the true will append the new data
+			fw.write("\n");
+			for(OrderList o:ordersSubmit){
+				String teacher=o.getTeacher();
+				int numBooks=o.getNum();
+				String title=o.getBook();
+				int roomNum=o.getRoom();
+	            String addFile="";
+	            
+	            addFile=roomNum+"\t"+numBooks+"\t"+teacher+"\t"+title;
+	            if(!o.equals(orders)){
+	            	fw.write(addFile+"\n");//appends the string to the file    
+	            }
+			}
+    	    fw.close();
+		}
+		catch(IOException ioe)
+    	{
+    	    System.err.println("IOException: " + ioe.getMessage());
+    	}
+		
+	}
+	
+	/**
 	 * change a book order
 	 * @param fileName
 	 * @param or
@@ -289,8 +321,9 @@ public class BookData {
 	 */
 	public static void changeOrder(String fileName, OrderList or,OrderList n){
 		loadOrder(fileName);
-		
-		ordersSubmit.add(n);
+		if(n.getNum()!=0){
+			ordersSubmit.add(n);
+		}
 		try {
 			
 			FileWriter fw = new FileWriter(fileName);
@@ -303,11 +336,11 @@ public class BookData {
 	            String addFile="";
 	            
 	            addFile=roomNum+"\t"+numBooks+"\t"+teacher+"\t"+title;
-	            if(numBooks!=0){
+	            if(true){
 	            	if(!o.equals(or)){
 	            		fw.write(addFile+"\n");//appends the string to the file 
-	            		System.out.println(o.getNum()+" "+o.getTeacher());
-	            		System.out.println(or.getNum()+" "+or.getTeacher());
+	            	}else{
+	            		fw.write(addFile+"\to\n");//appends the string to the file 
 	            	}
 	            }
 			}
@@ -331,7 +364,9 @@ public class BookData {
 				return;
 			}
 		}
-		ordersSubmit.add(orders);
+		if(orders.getNum()!=0){
+			ordersSubmit.add(orders);
+		}
 	
 		try {
 			FileWriter fw = new FileWriter(fileName); //the true will append the new data
@@ -344,7 +379,7 @@ public class BookData {
 	            String addFile="";
 	            
 	            addFile=roomNum+"\t"+numBooks+"\t"+teacher+"\t"+title;
-	            if(numBooks!=0){
+	            if(true){
 	            	fw.write(addFile+"\n");//appends the string to the file    
 	            }
 			}
@@ -377,7 +412,7 @@ public class BookData {
             line = bufferedReader.readLine();
             line = bufferedReader.readLine();
             while(line != null && !line.equals("")) {
-            	//System.out.println(line);
+            	System.out.println(line);
 				//if(line.charAt(0)!='/'){
                     parts=line.split("\t");
                     if(parts.length<1){
@@ -389,7 +424,9 @@ public class BookData {
                     title=(parts[3]);
                     BookOrder tempOrder=new BookOrder(roomNumb,numberOfB,teacherNa);
                     OrderList orderlists=new OrderList(tempOrder,title);
-                    ordersSubmit.add(orderlists);
+                    if(orderlists.getNum()!=0 && parts.length<5){
+                    	ordersSubmit.add(orderlists);
+                    }
                     line = bufferedReader.readLine();
             }
                     

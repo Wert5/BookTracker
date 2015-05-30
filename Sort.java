@@ -2,6 +2,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Sort {
+	
+	/**
+	 * This is a collection of methods which return a sorted list based on various criteria
+	 * @param b
+	 * @return
+	 */
 	public static ArrayList<Book> sortTitle (ArrayList<Book> b){
 		Collections.sort(b,new titleComparator());
 		return b;
