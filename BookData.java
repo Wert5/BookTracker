@@ -19,7 +19,9 @@ public class BookData {
 	public BookData(){
 		//fix();
 	}
-	
+	/**
+	 * This method was used during testing to convert storage formats
+	 */
 	private void fix(){
 		String bookTitle, isbn, grade;
 		int roomNumber,total;
@@ -119,7 +121,11 @@ public class BookData {
 	            // ex.printStackTrace();
 	    }
 	}
-	
+	/**
+	 * This method loads the list of books from a file
+	 * @param file
+	 * @return
+	 */
 	public ArrayList<Book> loadData(String file){
 		String bookTitle, isbn, grade;
 		int roomNumber,total;
@@ -212,7 +218,11 @@ public class BookData {
 	    }
 		return orig;
 	}
-	//can be used to edit existing file with the same fileName, or append to a new file
+	/**
+	 * can be used to edit existing file with the same fileName, or append to a new file
+	 * @param fileName
+	 * @param books
+	 */
 	public void saveData(String fileName, ArrayList<Book> books){
 		try {
             // FileReader reads text files in the default encoding.
@@ -256,7 +266,11 @@ public class BookData {
 	public static ArrayList<Book> getOrig() {
 		return orig;
 	}
-
+	/**
+	 * Load the orders of a certain book
+	 * @param title
+	 * @return
+	 */
 	public static ArrayList<BookOrder> findDataTitle(String title){
 		ArrayList<BookOrder> arr=new ArrayList<BookOrder>();
 		for(OrderList o:ordersSubmit){
@@ -267,7 +281,49 @@ public class BookData {
 		}
 		return arr;
 	}
+	/**
+	 * change a book order
+	 * @param fileName
+	 * @param or
+	 * @param n
+	 */
+	public static void changeOrder(String fileName, OrderList or,OrderList n){
+		loadOrder(fileName);
+		
+		ordersSubmit.add(n);
+		try {
+			
+			FileWriter fw = new FileWriter(fileName);
+			fw.write("sas\n");
+			for(OrderList o:ordersSubmit){
+				String teacher=o.getTeacher();
+				int numBooks=o.getNum();
+				String title=o.getBook();
+				int roomNum=o.getRoom();
+	            String addFile="";
+	            
+	            addFile=roomNum+"\t"+numBooks+"\t"+teacher+"\t"+title;
+	            if(numBooks!=0){
+	            	if(!o.equals(or)){
+	            		fw.write(addFile+"\n");//appends the string to the file 
+	            		System.out.println(o.getNum()+" "+o.getTeacher());
+	            		System.out.println(or.getNum()+" "+or.getTeacher());
+	            	}
+	            }
+			}
+    	    fw.close();
+		}
+		catch(IOException ioe)
+    	{
+    	    System.err.println("IOException: " + ioe.getMessage());
+    	}
+	}
 	
+	/**
+	 * save a book order
+	 * @param fileName
+	 * @param orders
+	 */
 	public static void saveOrder(String fileName, OrderList orders){
 		loadOrder(fileName);
 		for(OrderList o:ordersSubmit){
@@ -279,6 +335,7 @@ public class BookData {
 	
 		try {
 			FileWriter fw = new FileWriter(fileName); //the true will append the new data
+			fw.write("\n");
 			for(OrderList o:ordersSubmit){
 				String teacher=o.getTeacher();
 				int numBooks=o.getNum();
@@ -299,7 +356,10 @@ public class BookData {
     	}
 		
 	}
-	
+	/**
+	 * load the orders from a file
+	 * @param fileNa
+	 */
 	public static void loadOrder(String fileNa){
 		try {
             // FileReader reads text files in the default encoding.
@@ -314,6 +374,7 @@ public class BookData {
             String line=null;
             String[] parts={" "};
             ordersSubmit=new ArrayList<OrderList>();
+            line = bufferedReader.readLine();
             line = bufferedReader.readLine();
             while(line != null && !line.equals("")) {
             	//System.out.println(line);

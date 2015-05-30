@@ -66,10 +66,10 @@ public class OrderDisplay extends JPanel implements ActionListener {
 	}
 	public void setList(Book k){
 		bk=k;
-		ArrayList<BookOrder> a=;
+		ArrayList<BookOrder> a=new ArrayList<BookOrder>();
 		for(OrderList ol:BookData.ordersSubmit){
 			if(ol.getBook().equals(k.getTitle())){
-				
+				a.add(ol.getOrder());
 			}
 		}
 		BookOrder[] b=(a.toArray(new BookOrder[a.size()]));

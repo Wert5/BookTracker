@@ -16,6 +16,7 @@ public class ActPanel extends JPanel implements ActionListener{
 	private JButton ret;
 	private JButton chk;
 	private JTextField srch;
+	public static final String ordFile="orders.txt";
 
 	public ActPanel(BookWindow bw) {
 		// TODO Auto-generated constructor stub
@@ -237,8 +238,9 @@ public class ActPanel extends JPanel implements ActionListener{
 						num=Integer.parseInt(str);
 						if(ord.getSelection().getNum()>=num){
 							go=false;
-							System.out.println(BookData.ordersSubmit.indexOf(ord.getSelection()));
+							BookOrder or=new BookOrder(ord.getSelection().getRoom(),ord.getSelection().getNum(),ord.getSelection().getTeacher());
 							ord.getSelection().setNum(ord.getSelection().getNum()-num);
+							BookData.changeOrder(ordFile, new OrderList(or,wind.getSelection().getTitle()),new OrderList(ord.getSelection(),wind.getSelection().getTitle()));
 							wind.getSelection().getStore().setNum(num+wind.getSelection().getStore().getNum());
 							if(ord.getSelection().getNum()==0){
 								ord.removeOrd();
